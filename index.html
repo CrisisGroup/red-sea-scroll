@@ -68,8 +68,8 @@
         var header = document.createElement('div');
 
         if (config.title) {
-            var titleText = document.createElement('h1');
-            titleText.innerText = config.title;
+            var titleText = document.createElement('div');
+            titleText.innerHTML = config.title;
             header.appendChild(titleText);
         }
 
@@ -86,12 +86,14 @@
             header.appendChild(startButton);
         }
 
+        // Add CSS class and ID to the header div if there's content
         if (header.innerText.length > 0) {
             header.classList.add('main');
             header.setAttribute('id', 'header');
             story.appendChild(header);
         }
 
+        // Add features for chapters
         config.chapters.forEach((record, idx) => {
             var container = document.createElement('div');
             var chapter = document.createElement('div');
@@ -128,6 +130,9 @@
             }
             features.appendChild(container);
         });
+
+        // Append features to the story
+        story.appendChild(features);
 
         story.appendChild(features);
 
@@ -181,6 +186,12 @@
             }
             if (chapter.callback) {
                 window[chapter.callback]();
+            }
+            if (chapter.location.bbox) {
+                map.fitBounds(chapter.location.bbox, {
+                    padding: { top: 10, bottom: 25, left: 15, right: 5 },
+                    maxZoom: 12  // Prevents excessive zooming
+                });
             }
             if (chapter.rotateAnimation) {
                 map.once('moveend', () => {
