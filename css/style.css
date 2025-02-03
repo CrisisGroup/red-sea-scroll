@@ -27,6 +27,7 @@ a:visited {
     z-index: 5;
     height: 100vh; /* Adjust as needed, e.g., '400px' for fixed height */
     overflow: hidden;
+    margin-bottom: 40%;
 }
 
 #header video {
@@ -48,6 +49,16 @@ a:visited {
     text-align: center;
 }
 
+h3 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}
+
 #footer {
     width: 100%;
     min-height: 5vh;
@@ -57,6 +68,7 @@ a:visited {
     font-size: 13px;
     position: relative;
     z-index: 5;
+    background-color: #000;
 }
 
 #features {
@@ -89,6 +101,7 @@ a:visited {
 
 .main {
     color: #fafafa;
+    border-radius: 25px;
 }
 
 .step {
