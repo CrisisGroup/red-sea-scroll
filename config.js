@@ -31,17 +31,18 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 1,
-                //     duration: 5000
-                // }
+                {
+                    layer: 'shipping-routes',
+                    opacity: 1,
+                    duration: 3000
+                }
             ],
             onChapterExit: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 0
-                // }
+                {
+                    layer: 'shipping-routes',
+                    opacity: 0,
+                    duration: 2000
+                }
             ]
         },
         {
@@ -87,7 +88,8 @@ var config = {
                 center: [6.15116, 46.20595],
                 zoom: 12.52,
                 pitch: 8.01,
-                bearing: 0.00
+                bearing: 0.00,
+                bbox: [[15.95904, 5.04785], [79.69360, 40.40719]]
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -106,7 +108,11 @@ var config = {
                 center: [-58.54195, -34.71600],
                 zoom: 4,
                 pitch: 0,
-                bearing: 0
+                bearing: 0,
+                bbox: [
+                    [31.14583, 3.10875],
+                    [68.55402, 23.97224]
+                ]
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
