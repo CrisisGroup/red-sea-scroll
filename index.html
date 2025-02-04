@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 
 <head>
     <meta charset='utf-8' />
@@ -7,8 +6,8 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link rel="icon" type="image/x-icon"
         href="https://raw.githubusercontent.com/mapbox/assembly/publisher-staging/src/svgs/mapbox.svg">
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mapbox-gl-globe-minimap@1.2.0/dist/bundle.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
     <link rel="stylesheet" href="https://use.typekit.net/kqj3chj.css">
@@ -48,11 +47,20 @@
 
         function setLayerOpacity(layer) {
             var paintProps = getLayerPaintType(layer.layer);
-            var options = layer.duration ? { "duration": layer.duration } : {};
+
             paintProps.forEach(function (prop) {
-                map.setPaintProperty(layer.layer, prop, layer.opacity, options);
+                var options = {};
+
+                if (layer.duration) {
+                    var transitionProp = prop + "-transition"; // Restore transition property
+                    options = { "duration": layer.duration };
+                    map.setPaintProperty(layer.layer, transitionProp, options); // Set transition first
+                }
+
+                map.setPaintProperty(layer.layer, prop, layer.opacity, options); // Then set opacity
             });
         }
+
 
         function debounce(func, delay) {
             let timer;
@@ -65,6 +73,64 @@
         var story = document.getElementById('story');
         var features = document.createElement('div');
         features.setAttribute('id', 'features');
+
+        var legendContainer = document.createElement('div');
+        legendContainer.setAttribute('id', 'legend-container');
+        legendContainer.style.display = 'none'; // Hidden by default
+        story.appendChild(legendContainer);
+
+        function updateLegend(legend) {
+            console.log("✅ updateLegend() called with:", legend); // Debugging log
+
+            legendContainer.innerHTML = ''; // Clear existing legend
+            legendContainer.style.display = 'block'; // Show legend
+
+            var title = document.createElement('h4');
+            title.innerText = legend.title;
+            legendContainer.appendChild(title);
+
+            legend.items.forEach(item => {
+                var itemDiv = document.createElement('div');
+                itemDiv.style.display = 'flex';
+                itemDiv.style.alignItems = 'center';
+                itemDiv.style.marginBottom = '5px';
+
+                var colorBox = document.createElement('span');
+                colorBox.style.width = '20px';
+                colorBox.style.height = '20px';
+                colorBox.style.backgroundColor = item.color;
+                colorBox.style.display = 'inline-block';
+                colorBox.style.marginRight = '10px';
+
+                var label = document.createElement('span');
+                label.innerText = item.label;
+
+                itemDiv.appendChild(colorBox);
+                itemDiv.appendChild(label);
+                legendContainer.appendChild(itemDiv);
+            });
+
+            // Apply position class based on legend.position
+            legendContainer.className = ''; // Reset class
+            legendContainer.classList.add('legend-container', `legend-${legend.position || 'bottom-left'}`);
+
+            // ✅ Move legend to the current active chapter
+            var activeChapter = document.querySelector('.step.active');
+            if (activeChapter) {
+                activeChapter.appendChild(legendContainer);
+            } else {
+                console.warn("⚠️ No active chapter found! Legend might not be positioned correctly.");
+            }
+        }
+
+        function hideLegend() {
+            legendContainer.style.display = 'none';
+
+            var activeChapter = document.querySelector('.step.active');
+            if (activeChapter && activeChapter.contains(legendContainer)) {
+                activeChapter.removeChild(legendContainer);
+            }
+        }
 
         // Create a link element
         var cornerLink = document.createElement("a");
@@ -83,7 +149,6 @@
 
         // Append the link to the story container
         story.appendChild(cornerLink);
-
 
         var header = document.createElement('div');
 
@@ -117,7 +182,7 @@
             header.appendChild(startButton);
 
         }
-        // Add CSS class and ID to the header div if there's content
+
         if (header.innerText.length > 0) {
             header.classList.add('main');
             header.setAttribute('id', 'header');
@@ -153,11 +218,9 @@
                 container.classList.add('active');
             }
 
-            // Apply alignment class, default to 'centered' if undefined
             var alignmentClass = alignments[record.alignment] || 'centered';
             container.classList.add(alignmentClass);
 
-            // If the alignment is "none", prevent the chapter box from rendering
             if (record.alignment !== 'none') {
                 chapter.classList.add('main');
                 container.appendChild(chapter);
@@ -169,9 +232,6 @@
 
             features.appendChild(container);
         });
-
-        // Append features to the story
-        story.appendChild(features);
 
         story.appendChild(features);
 
@@ -220,18 +280,32 @@
             response.element.classList.add('active');
             map[chapter.mapAnimation || 'flyTo'](chapter.location);
 
+            // Apply layer opacity immediately (removes debounce delay)
             if (chapter.onChapterEnter.length > 0) {
-                chapter.onChapterEnter.forEach(setLayerOpacity);
+                chapter.onChapterEnter.forEach(layer => {
+                    setLayerOpacity(layer); // Apply opacity immediately
+                });
             }
+
+            if (chapter.legend) {
+                console.log("🟢 Legend found, updating:", chapter.legend); // Debugging log
+                updateLegend(chapter.legend);
+            } else {
+                console.log("⚠️ No legend for this chapter, hiding legend.");
+                hideLegend();
+            }
+
             if (chapter.callback) {
                 window[chapter.callback]();
             }
+
             if (chapter.location.bbox) {
                 map.fitBounds(chapter.location.bbox, {
                     padding: { top: 10, bottom: 25, left: 15, right: 5 },
                     maxZoom: 12  // Prevents excessive zooming
                 });
             }
+
             if (chapter.rotateAnimation) {
                 map.once('moveend', () => {
                     const rotateNumber = map.getBearing();
@@ -241,6 +315,7 @@
                     });
                 });
             }
+
             if (config.auto) {
                 var next_chapter = current_chapter + 1;
                 if (next_chapter < config.chapters.length) {
@@ -286,7 +361,7 @@
             scroller
                 .setup({
                     step: '.step',
-                    offset: 0.5,
+                    offset: 0.4,
                     progress: true
                 })
                 .onStepEnter(debouncedStepEnter)

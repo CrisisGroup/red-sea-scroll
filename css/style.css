@@ -156,6 +156,7 @@ p {
 .step {
     padding-bottom: 50vh;
     opacity: 0.25;
+    min-height: 50vh;
 }
 
 .step.active {
@@ -178,6 +179,36 @@ p {
     width: 100%;
 }
 
+.legend-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    max-width: 200px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.legend-top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.legend-top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.legend-bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.legend-bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
 
 @media (max-width: 750px) {
 

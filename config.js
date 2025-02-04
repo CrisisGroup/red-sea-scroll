@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm6qwh1of009v01qofmki1t99',
+    style: 'mapbox://styles/daltonwb/cm6qwyso400zi01ryfuziebm8',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -38,7 +38,7 @@ var config = {
             ]
         },
         {
-            id: '02', 
+            id: '02',
             alignment: 'none',
             hidden: false,
             title: '',
@@ -130,18 +130,10 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
-                {
-                    layer: 'territory',
-                    opacity: 1,
-                    duration: 3000
-                }
+
             ],
             onChapterExit: [
-                {
-                    layer: 'territory',
-                    opacity: 0,
-                    duration: 5000
-                }
+
             ]
         },
         {
@@ -157,6 +149,15 @@ var config = {
                 pitch: 60,
                 bearing: -43.2,
                 bbox: [[40.64210, 10.53028], [53.81968, 20.82401]]
+            },
+            legend: {
+                title: "Control by Faction",
+                position: "bottom-left", 
+                items: [
+                    { color: "#ff0000", label: "Urban Area" },
+                    { color: "#00ff00", label: "Forests" },
+                    { color: "#0000ff", label: "Water Bodies" }
+                ]
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -196,7 +197,13 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
+            onChapterEnter: [
+                {
+                    layer: 'acled_attacks',
+                    opacity: 0,
+                    duration: 3000
+                }
+            ],
             onChapterExit: []
         },
         {
@@ -216,11 +223,26 @@ var config = {
                     [68.55402, 23.97224]
                 ]
             },
+            legend: {
+                title: "Territorial Control by Faction",
+                position: "bottom-left", 
+                items: [
+                    { color: "#ff0000", label: "Attack" }
+                ]
+            },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [
+                {
+                    layer: 'acled_attacks',
+                    opacity: 1,
+                    duration: 3000
+                }
+            ],
+            onChapterExit: [
+
+            ]
         },
         {
             id: '07',
@@ -258,8 +280,8 @@ var config = {
                 pitch: 0,
                 bearing: 0,
                 bbox: [
-                    [31.14583, 3.10875],
-                    [68.55402, 23.97224]
+                    [18.73172, 2.56429],
+                    [79.01917, 40.35184]
                 ]
             },
             mapAnimation: 'flyTo',
