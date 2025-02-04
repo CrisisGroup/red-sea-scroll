@@ -37,7 +37,8 @@
             'left': 'lefty',
             'center': 'centered',
             'right': 'righty',
-            'full': 'fully'
+            'full': 'fully',
+            'none': 'no-box'
         };
 
         function getLayerPaintType(layer) {
@@ -65,6 +66,25 @@
         var features = document.createElement('div');
         features.setAttribute('id', 'features');
 
+        // Create a link element
+        var cornerLink = document.createElement("a");
+        cornerLink.href = "https://www.crisisgroup.org";
+        cornerLink.target = "_blank";
+        cornerLink.classList.add("corner-link");
+
+        // Create the permanent image
+        var cornerImage = new Image();
+        cornerImage.src = "images/icg.png"; // Update with the actual image path
+        cornerImage.alt = "International Crisis Group logo";
+        cornerImage.classList.add("corner-image");
+
+        // Append the image inside the link
+        cornerLink.appendChild(cornerImage);
+
+        // Append the link to the story container
+        story.appendChild(cornerLink);
+
+
         var header = document.createElement('div');
 
         if (config.title) {
@@ -82,10 +102,21 @@
         if (config.start) {
             var startButton = document.createElement('button');
             startButton.innerText = config.start;
-            startButton.setAttribute('href', '#INTRO');
-            header.appendChild(startButton);
-        }
+            startButton.classList.add('start-button');
 
+            // Add click event to scroll slightly above #INTRO
+            startButton.addEventListener('click', function () {
+                var introElement = document.getElementById('INTRO');
+                if (introElement) {
+                    var offset = window.innerHeight * 0.1; // Moves up by 5% of viewport height
+                    var targetPosition = introElement.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+
+            header.appendChild(startButton);
+
+        }
         // Add CSS class and ID to the header div if there's content
         if (header.innerText.length > 0) {
             header.classList.add('main');
@@ -93,7 +124,6 @@
             story.appendChild(header);
         }
 
-        // Add features for chapters
         config.chapters.forEach((record, idx) => {
             var container = document.createElement('div');
             var chapter = document.createElement('div');
@@ -118,16 +148,25 @@
 
             container.setAttribute('id', record.id);
             container.classList.add('step');
+
             if (idx === 0) {
                 container.classList.add('active');
             }
 
-            chapter.classList.add('main');
-            container.appendChild(chapter);
-            container.classList.add(alignments[record.alignment] || 'centered');
+            // Apply alignment class, default to 'centered' if undefined
+            var alignmentClass = alignments[record.alignment] || 'centered';
+            container.classList.add(alignmentClass);
+
+            // If the alignment is "none", prevent the chapter box from rendering
+            if (record.alignment !== 'none') {
+                chapter.classList.add('main');
+                container.appendChild(chapter);
+            }
+
             if (record.hidden) {
                 container.classList.add('hidden');
             }
+
             features.appendChild(container);
         });
 
