@@ -4,7 +4,7 @@ var config = {
     projection: 'globe',
     inset: true,
     insetOptions: {
-        markerColor: 'orange'
+        markerColor: '#a4343a'
     },
     insetPosition: 'bottom-right',
     use3dTerrain: false,

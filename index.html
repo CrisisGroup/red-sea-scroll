@@ -4,8 +4,7 @@
     <meta charset='utf-8' />
     <title>Red Sea</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <link rel="icon" type="image/x-icon"
-        href="https://www.crisisgroup.org/themes/custom/icg_d9/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.crisisgroup.org/themes/custom/icg_d9/favicon.ico">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mapbox-gl-globe-minimap@1.2.0/dist/bundle.js"></script>
@@ -264,13 +263,20 @@
             projection: config.projection
         });
 
-        // Create a inset map if enabled in config.js
+        // Create an inset map if enabled in config.js
         if (config.inset) {
             map.addControl(
-                new GlobeMinimap({ ...config.insetOptions }),
+                new GlobeMinimap({
+                    ...config.insetOptions,
+                    waterColor: '#195a66',
+                    landColor: '#dbcec2',
+                    globeSize: 175
+                }),
                 config.insetPosition
             );
         }
+
+
 
         // Instantiate the scrollama
         var scroller = scrollama();
