@@ -180,14 +180,19 @@ p {
 }
 
 .legend-container {
+    all: unset;
+    display: block;
+    text-align: left;
     position: relative;
+    max-width: 300px;
+    margin-left: 2rem;
     background: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    border-radius: 5px;
+    padding: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
-    max-width: 200px;
-    transition: opacity 0.3s ease-in-out;
+    font-size: 1rem;
+    transition: opacity 1s ease-in-out;
+    border: none;
+    border-radius: 0;
 }
 
 .legend-top-left {

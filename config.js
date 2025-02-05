@@ -154,9 +154,12 @@ var config = {
                 title: "Control by Faction",
                 position: "bottom-left", 
                 items: [
-                    { color: "#ff0000", label: "Urban Area" },
-                    { color: "#00ff00", label: "Forests" },
-                    { color: "#0000ff", label: "Water Bodies" }
+                    { color: "#7c0e24", label: "Huthis" },
+                    { color: "#a5343a", label: "STC and local aligned forces" },
+                    { color: "#764d50", label: "National Resistance Forces" },
+                    { color: "#dab7bb", label: "Hadramawt Elite Forces" },
+                    { color: "#e7d7dc", label: "Shebwa Defence Forces & Giants Brigades" },
+                    { color: "#000000", label: "Flashpoints" }
                 ]
             },
             mapAnimation: 'flyTo',
@@ -227,7 +230,7 @@ var config = {
                 title: "Territorial Control by Faction",
                 position: "bottom-left", 
                 items: [
-                    { color: "#ff0000", label: "Attack" }
+                    { color: "#a4343a", label: "Recorded attack" },
                 ]
             },
             mapAnimation: 'flyTo',

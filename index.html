@@ -85,7 +85,7 @@
             legendContainer.innerHTML = ''; // Clear existing legend
             legendContainer.style.display = 'block'; // Show legend
 
-            var title = document.createElement('h4');
+            var title = document.createElement('h3');
             title.innerText = legend.title;
             legendContainer.appendChild(title);
 
@@ -93,6 +93,8 @@
                 var itemDiv = document.createElement('div');
                 itemDiv.style.display = 'flex';
                 itemDiv.style.alignItems = 'center';
+                itemDiv.style.border = 'none';
+                itemDiv.style.boxShadow = 'none';
                 itemDiv.style.marginBottom = '5px';
 
                 var colorBox = document.createElement('span');
@@ -361,7 +363,7 @@
             scroller
                 .setup({
                     step: '.step',
-                    offset: 0.4,
+                    offset: 0.5,
                     progress: true
                 })
                 .onStepEnter(debouncedStepEnter)
