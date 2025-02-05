@@ -90,7 +90,7 @@ a:visited {
 }
 
 .start-button:hover {
-    background-color: #c9302c;
+    background-color: #a4343a;
 }
 
 h3 {
@@ -116,9 +116,9 @@ p {
     font-size: 13px;
     position: relative;
     z-index: 5;
-    background-color: #000;
+    background-color: #DBCEC2;
     border-radius: 0;
-    border-top: 4px solid #DBCEC2;
+    border-top: 4px solid #fff;
 }
 
 #features {

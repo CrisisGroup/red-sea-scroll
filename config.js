@@ -9,7 +9,7 @@ var config = {
     insetPosition: 'bottom-right',
     use3dTerrain: false,
     auto: false,
-    title: '<h1>Yemen and Beyond: Militarisation in the Red Sea</h1><video id="background-video" autoplay loop muted poster="images/poster.jpg"><source src="images/aerial.mp4" type="video/mp4">',
+    title: '<h1>Yemen and Beyond: Militarisation in the Red Sea</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
     subtitle: '',
     start: 'BEGIN',
     footer: 'Source: source citations, etc. <br> Created using <a href="https://github.com/mapbox/storytelling" target="_blank">Mapbox Storytelling</a> template.',
