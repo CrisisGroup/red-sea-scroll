@@ -101,7 +101,7 @@ h3 {
 p {
     color: #000;
     font-family: "franklin-gothic-urw", sans-serif;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -160,7 +160,7 @@ p {
 }
 
 .step.active {
-    opacity: 0.9;
+    opacity: 0.9999;
 }
 
 .step div {
