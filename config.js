@@ -6,7 +6,7 @@ var config = {
     insetOptions: {
         markerColor: '#a4343a'
     },
-    insetPosition: 'bottom-right',
+    insetPosition: 'bottom-left',
     use3dTerrain: false,
     auto: false,
     title: '<h1>Yemen and Beyond: Militarisation in the Red Sea</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
@@ -192,46 +192,6 @@ var config = {
                     duration: 3000
                 },
                 {
-                    layer: 'jordan-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'oman-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'sudan-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'egypt-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'saudi-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'somalia-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'ethiopia-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'eritrea-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
                     layer: 'yemen-place-label',
                     opacity: 1,
                     duration: 3000
@@ -366,6 +326,40 @@ var config = {
                 },
             ],
             onChapterExit: [
+                
+            ]
+        },
+        {
+            id: '04',
+            alignment: 'none',
+            hidden: false,
+            title: '',
+            image: '',
+            description: '',
+            legendId: 'yemenlegend',
+            location: {
+                center: [-77.020636, 38.886900],
+                zoom: 8.5,
+                pitch: 60,
+                bearing: -43.2,
+                bbox: [[40.64210, 10.53028], [53.81968, 20.82401]]
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'territory',
+                    opacity: 1,
+                    duration: 3000
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'territory',
+                    opacity: 0,
+                    duration: 5000
+                },
                 {
                     layer: 'iran',
                     opacity: 0,
@@ -397,46 +391,6 @@ var config = {
                     duration: 3000
                 },
                 {
-                    layer: 'jordan-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'oman-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'sudan-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'egypt-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'saudi-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'somalia-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'ethiopia-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'eritrea-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
                     layer: 'yemen-place-label',
                     opacity: 0,
                     duration: 3000
@@ -451,50 +405,6 @@ var config = {
                     opacity: 0,
                     duration: 3000
                 },
-            ]
-        },
-        {
-            id: '04',
-            alignment: 'none',
-            hidden: false,
-            title: '',
-            image: '',
-            description: '',
-            location: {
-                center: [-77.020636, 38.886900],
-                zoom: 8.5,
-                pitch: 60,
-                bearing: -43.2,
-                bbox: [[40.64210, 10.53028], [53.81968, 20.82401]]
-            },
-            legend: {
-                title: "Control by Faction",
-                position: "bottom-left", 
-                items: [
-                    { color: "#7c0e24", label: "Huthis" },
-                    { color: "#a5343a", label: "STC and local aligned forces" },
-                    { color: "#764d50", label: "National Resistance Forces" },
-                    { color: "#dab7bb", label: "Hadramawt Elite Forces" },
-                    { color: "#e7d7dc", label: "Shebwa Defence Forces & Giants Brigades" },
-                    { color: "#000000", label: "Flashpoints" }
-                ]
-            },
-            mapAnimation: 'flyTo',
-            rotateAnimation: false,
-            callback: '',
-            onChapterEnter: [
-                {
-                    layer: 'territory',
-                    opacity: 1,
-                    duration: 3000
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'territory',
-                    opacity: 0,
-                    duration: 5000
-                }
             ]
         },
         {
@@ -533,6 +443,7 @@ var config = {
             title: '',
             image: '',
             description: '',
+            legendId: 'acledlegend',
             location: {
                 center: [-58.54195, -34.71600],
                 zoom: 4,
@@ -541,13 +452,6 @@ var config = {
                 bbox: [
                     [31.14583, 3.10875],
                     [68.55402, 23.97224]
-                ]
-            },
-            legend: {
-                title: "Territorial Control by Faction",
-                position: "bottom-left", 
-                items: [
-                    { color: "#a4343a", label: "Recorded attack" },
                 ]
             },
             mapAnimation: 'flyTo',
@@ -584,8 +488,70 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [
+                {
+                    layer: 'acled_attacks',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_1_011223',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_2_011223',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_3_011223',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_4_011223',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'haifa-fix-79ruok',
+                    opacity: 1,
+                    duration: 3000
+                },
+            ],
+            onChapterExit: [
+                {
+                    layer: 'acled_attacks',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_1_011223',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_2_011223',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_3_011223',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_4_011223',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'haifa-fix-79ruok',
+                    opacity: 0,
+                    duration: 3000
+                },
+            ]
         },
         {
             id: '08',
@@ -595,20 +561,109 @@ var config = {
             image: '',
             description: '',
             location: {
-                center: [-58.54195, -34.71600],
-                zoom: 4,
+                center: [23.96141, 8.17259],
+                zoom: 2.5,
                 pitch: 0,
                 bearing: 0,
-                bbox: [
-                    [18.73172, 2.56429],
-                    [79.01917, 40.35184]
-                ]
+                speed: .4
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [
+                {
+                    layer: 'ports',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'straits',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ports',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'sea-points-6v3o20',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_alt_1_140224',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_alt_2_140224',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_alt_3_140224',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_alt_4_140224',
+                    opacity: 1,
+                    duration: 3000
+                },
+            ],
+            onChapterExit: [
+                {
+                    layer: 'ports',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'straits',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ports',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'sea-points-6v3o20',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_alt_1_140224',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_alt_2_140224',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_alt_3_140224',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_alt_4_140224',
+                    opacity: 0,
+                    duration: 3000
+                },
+            ]
         }
     ]
 };
