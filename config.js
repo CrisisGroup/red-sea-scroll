@@ -12,7 +12,7 @@ var config = {
     title: '<h1>Yemen and Beyond: Militarisation in the Red Sea</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
     subtitle: '',
     start: 'BEGIN',
-    footer: 'Source: source citations, etc. <br> Created using <a href="https://github.com/mapbox/storytelling" target="_blank">Mapbox Storytelling</a> template.',
+    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Paul Franz and Claire Boccon-Gibod <br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
     chapters: [
         {
             id: 'INTRO', // Always use INTRO as first chapter name
@@ -34,12 +34,12 @@ var config = {
                 {
                     layer: 'gaza',
                     opacity: 1,
-                    duration: 3000
+                    duration: 2000
                 },
                 {
                     layer: 'gazaa-place-label',
                     opacity: 1,
-                    duration: 3000
+                    duration: 2000
                 },
                 {
                     layer: 'iran',
@@ -108,6 +108,21 @@ var config = {
                 },
                 {
                     layer: 'eritrea-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria-place-label',
                     opacity: 0,
                     duration: 3000
                 },
@@ -216,6 +231,26 @@ var config = {
                     opacity: 1,
                     duration: 3000
                 },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
                 
@@ -233,10 +268,7 @@ var config = {
                 zoom: 8.5,
                 pitch: 60,
                 bearing: -43.2,
-                bbox: [
-                    [18.73172, 2.56429],
-                    [79.01917, 40.35184]
-                ]
+                bbox: [[40.64210, 10.53028], [53.81968, 20.82401]]
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -312,6 +344,26 @@ var config = {
                     opacity: 1,
                     duration: 3000
                 },
+                {
+                    layer: 'iraq-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
                 {
@@ -381,6 +433,21 @@ var config = {
                 },
                 {
                     layer: 'eritrea-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria-place-label',
                     opacity: 0,
                     duration: 3000
                 },

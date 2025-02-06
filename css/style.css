@@ -121,6 +121,11 @@ p {
     border-top: 4px solid #fff;
 }
 
+#footer p {
+    text-align: left;
+    margin-left: 5%;
+}
+
 #features {
     padding: 10vh 0;
 }
