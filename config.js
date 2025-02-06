@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm6qwyso400zi01ryfuziebm8',
+    style: 'mapbox://styles/daltonwb/cm6tiz5d8008901s19nzm9kuy',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -31,10 +31,98 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
-
+                {
+                    layer: 'gaza',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'gazaa-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran_destablizing',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria_fill',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq_fill',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'jordan-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'oman-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'sudan-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'egypt-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'saudi-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'somalia-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ethiopia-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'eritrea-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
-
+                {
+                    layer: 'gaza',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'gazaa-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
             ]
         },
         {
@@ -69,47 +157,68 @@ var config = {
                     duration: 3000
                 },
                 {
-                    layer: 'gaza',
+                    layer: 'syria_fill',
                     opacity: 1,
                     duration: 3000
                 },
                 {
-                    layer: 'under_iranian_ctrl',
+                    layer: 'syria_pattern',
                     opacity: 1,
                     duration: 3000
                 },
                 {
-                    layer: 'under_iranian_ctrl2',
+                    layer: 'iraq_fill',
                     opacity: 1,
                     duration: 3000
-                }
+                },
+                {
+                    layer: 'iraq_pattern',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'jordan-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'oman-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'sudan-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'egypt-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'saudi-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'somalia-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ethiopia-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'eritrea-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
-                {
-                    layer: 'iran',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'iran_destablizing',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'gaza',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'under_iranian_ctrl',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'under_iranian_ctrl2',
-                    opacity: 0,
-                    duration: 3000
-                }
+                
             ]
         },
         {
@@ -124,16 +233,157 @@ var config = {
                 zoom: 8.5,
                 pitch: 60,
                 bearing: -43.2,
-                bbox: [[40.64210, 10.53028], [53.81968, 20.82401]]
+                bbox: [
+                    [18.73172, 2.56429],
+                    [79.01917, 40.35184]
+                ]
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
-
+                {
+                    layer: 'iran',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran_destablizing',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria_fill',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria_pattern',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq_fill',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq_pattern',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'jordan-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'oman-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'sudan-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'egypt-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'saudi-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'somalia-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ethiopia-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'eritrea-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
-
+                {
+                    layer: 'iran',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran_destablizing',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria_fill',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq_fill',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'jordan-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'oman-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'sudan-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'egypt-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'saudi-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'somalia-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ethiopia-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'eritrea-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
             ]
         },
         {
