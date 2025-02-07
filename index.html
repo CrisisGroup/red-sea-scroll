@@ -43,15 +43,25 @@
             </div>
 
             <div class="legend-item">
+                <span style="background:#c3a588; border: solid 1px #fff;"></span> Yemen National Army, local / tribal,
+                Islah-aligned forces
+            </div>
+
+            <div class="legend-item">
                 <span style="background:#a5343a; border: solid 1px #fff;"></span> STC and local aligned forces
             </div>
 
             <div class="legend-item">
-                <span style="background:#764d50; border: solid 1px #fff;"></span> National Resistance Forces
+                <span style="background:#372210; border: solid 1px #fff;"></span> Shebwa Defence Forces & Giants
+                Brigades
             </div>
 
             <div class="legend-item">
-                <span style="background:#dab7bb; border: solid 1px #fff;"></span> Hadramawt Elite Forces
+                <span style="background:#473729; border: solid 1px #fff;"></span> Hadramawt Elite Forces
+            </div>
+
+            <div class="legend-item">
+                <span style="background:#764d50; border: solid 1px #fff;"></span> National Resistance Forces
             </div>
 
             <div class="legend-item">
@@ -310,14 +320,12 @@
             }
 
             if (chapter.rotateAnimation) {
-                map.once('moveend', () => {
-                    const rotateNumber = map.getBearing();
-                    map.rotateTo(rotateNumber + 180, {
-                        duration: 30000,
-                        easing: t => t
-                    });
-                });
-            }
+						map.once('moveend', () => {
+							const center = map.getCenter();
+							const newCenter = [center.lng + 180, center.lat];
+							map.easeTo({ center: newCenter, duration: 45000, easing: n => n });
+						});
+					}
 
             if (config.auto) {
                 var next_chapter = current_chapter + 1;

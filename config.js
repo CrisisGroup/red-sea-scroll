@@ -12,15 +12,15 @@ var config = {
     title: '<h1>Yemen and Beyond: Militarisation in the Red Sea</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
     subtitle: '',
     start: 'BEGIN',
-    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
+    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark.<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
     chapters: [
         {
             id: 'INTRO', // Always use INTRO as first chapter name
-            alignment: 'center',
+            alignment: 'none',
             hidden: false,
             title: '',
             image: '',
-            description: 'Since 7 October, groups within the <strong>Iran-led axis of resistance have exhibited varying levels of reaction to the Gaza war</strong>, resulting in differing impacts. Hamas and Hezbollah fought intensively but were both weakened by Israel’s large-scale military campaigns. Iran engaged in a few exchanges of attacks with Israel but has attempted to avoid further escalation. Meanwhile, Syrian Assad’s regime remained inactive before being overthrown by Syrian opposition groups in December 2024. The Iraqi militias launched a limited number of attacks during the first four months of the Gaza war.' + '<br /><br />' + '<strong>The Houthis remain the most active group within the axis.</strong>',
+            description: '',
             location: {
                 center: [34.36204, 31.43325],
                 zoom: 7,
@@ -41,103 +41,9 @@ var config = {
                     opacity: 1,
                     duration: 2000
                 },
-                {
-                    layer: 'iran',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'iran_destablizing',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'syria_fill',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'syria_pattern',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'iraq_fill',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'iraq_pattern',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'jordan-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'oman-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'sudan-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'egypt-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'saudi-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'somalia-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'ethiopia-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'eritrea-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'yemen-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'iran-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'syria-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
             ],
             onChapterExit: [
-                {
-                    layer: 'gaza',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'gazaa-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
+               
             ]
         },
         {
@@ -173,87 +79,52 @@ var config = {
                 },
                 {
                     layer: 'iran',
-                    opacity: 0,
+                    opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'iran_destablizing',
-                    opacity: 0,
+                    opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'syria_fill',
-                    opacity: 0,
+                    opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'syria_pattern',
-                    opacity: 0,
+                    opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'iraq_fill',
-                    opacity: 0,
+                    opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'iraq_pattern',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'jordan-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'oman-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'sudan-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'egypt-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'saudi-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'somalia-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'ethiopia-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'eritrea-place-label',
-                    opacity: 0,
+                    opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'yemen-place-label',
-                    opacity: 0,
+                    opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'iran-place-label',
-                    opacity: 0,
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq-place-label',
+                    opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'syria-place-label',
-                    opacity: 0,
+                    opacity: 1,
                     duration: 3000
                 },
             ],
@@ -593,7 +464,32 @@ var config = {
                     layer: 'acled_attacks',
                     opacity: 1,
                     duration: 3000
-                }
+                },
+                {
+                    layer: 'ship_1_011223',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_2_011223',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_3_011223',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_4_011223',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'haifa-fix-79ruok',
+                    opacity: 0,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
 
@@ -607,14 +503,10 @@ var config = {
             image: '',
             description: 'Due to the Houthis’ escalating attacks as of November 2024, <strong>the volume of shipping traffic along the Red Sea route has decreased by 60%</strong> over the past year. Most ships now avoid the Red Sea, opting for alternative routes. This shift has resulted in a 134% increase in the monthly average of voyages through the Cape of Good Hope.',
             location: {
-                center: [-58.54195, -34.71600],
-                zoom: 4,
+                center: [32.79566, 27.94906],
+                zoom: 3,
                 pitch: 0,
-                bearing: 0,
-                bbox: [
-                    [31.14583, 3.10875],
-                    [68.55402, 23.97224]
-                ]
+                bearing: 0
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -622,8 +514,8 @@ var config = {
             onChapterEnter: [
                 {
                     layer: 'acled_attacks',
-                    opacity: 1,
-                    duration: 3000
+                    opacity: 0,
+                    duration: 1000
                 },
                 {
                     layer: 'ship_1_011223',
@@ -654,31 +546,6 @@ var config = {
             onChapterExit: [
                 {
                     layer: 'acled_attacks',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'ship_1_011223',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'ship_2_011223',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'ship_3_011223',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'ship_4_011223',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'haifa-fix-79ruok',
                     opacity: 0,
                     duration: 3000
                 },
@@ -713,7 +580,104 @@ var config = {
                     duration: 3000
                 },
                 {
+                    layer: 'closure',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_1_011223',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_2_011223',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_3_011223',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'ship_4_011223',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'haifa-fix-79ruok',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'sea-points-6v3o20',
+                    opacity: 1,
+                    duration: 3000
+                },
+            ],
+            onChapterExit: [
+                {
                     layer: 'ports',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'straits',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ports',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'sea-points-6v3o20',
+                    opacity: 0,
+                    duration: 3000
+                },
+            ]
+        },
+        {
+            id: '09',
+            alignment: 'none',
+            hidden: false,
+            title: '',
+            image: '',
+            description: '',
+            location: {
+                center: [23.96141, 8.17259],
+                zoom: 2.5,
+                pitch: 0,
+                bearing: 0,
+                speed: .4
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'ports',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'straits',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'closure',
                     opacity: 1,
                     duration: 3000
                 },
@@ -794,6 +758,30 @@ var config = {
                     opacity: 0,
                     duration: 3000
                 },
+            ]
+        },
+        {
+            id: 'END',
+            alignment: 'center',
+            hidden: false,
+            title: '',
+            image: '',
+            description: 'Conclusion goes here. Reprehenderit exercitation ea labore aliqua dolore consequat pariatur fugiat et fugiat Lorem reprehenderit magna. Quis cillum aute id nisi in in officia adipisicing in irure incididunt. Veniam fugiat ad quis adipisicing. Ut enim est enim aliqua ex et. Ullamco voluptate officia adipisicing deserunt anim elit. Cupidatat proident fugiat exercitation ad culpa.',
+            location: {
+                center: [23.96141, 8.17259],
+                zoom: 2.5,
+                pitch: 0,
+                bearing: 0,
+                speed: .4
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: true,
+            callback: '',
+            onChapterEnter: [
+                
+            ],
+            onChapterExit: [
+                
             ]
         }
     ]
