@@ -490,6 +490,11 @@ var config = {
                     opacity: 0,
                     duration: 3000
                 },
+                {
+                    layer: 'closure',
+                    opacity: 0,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
 
@@ -512,6 +517,11 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
+                {
+                    layer: 'closure',
+                    opacity: 1,
+                    duration: 3000
+                },
                 {
                     layer: 'acled_attacks',
                     opacity: 0,
