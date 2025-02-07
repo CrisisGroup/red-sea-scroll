@@ -595,108 +595,6 @@ var config = {
                     duration: 3000
                 },
                 {
-                    layer: 'ship_1_011223',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'ship_2_011223',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'ship_3_011223',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'ship_4_011223',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'haifa-fix-79ruok',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'yemen-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'sea-points-6v3o20',
-                    opacity: 1,
-                    duration: 3000
-                },
-            ],
-            onChapterExit: [
-                {
-                    layer: 'ports',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'straits',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'ports',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'yemen-place-label',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'sea-points-6v3o20',
-                    opacity: 0,
-                    duration: 3000
-                },
-            ]
-        },
-        {
-            id: '09',
-            alignment: 'none',
-            hidden: false,
-            title: '',
-            image: '',
-            description: '',
-            location: {
-                center: [23.96141, 8.17259],
-                zoom: 2.5,
-                pitch: 0,
-                bearing: 0,
-                speed: .4
-            },
-            mapAnimation: 'flyTo',
-            rotateAnimation: false,
-            callback: '',
-            onChapterEnter: [
-                {
-                    layer: 'ports',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'straits',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'closure',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
-                    layer: 'yemen-place-label',
-                    opacity: 1,
-                    duration: 3000
-                },
-                {
                     layer: 'sea-points-6v3o20',
                     opacity: 1,
                     duration: 3000
@@ -735,11 +633,6 @@ var config = {
                 },
                 {
                     layer: 'ports',
-                    opacity: 0,
-                    duration: 3000
-                },
-                {
-                    layer: 'yemen-place-label',
                     opacity: 0,
                     duration: 3000
                 },
