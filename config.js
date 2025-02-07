@@ -141,12 +141,143 @@ var config = {
             ]
         },
         {
+            id: 'INTRO1', // Always use INTRO as first chapter name
+            alignment: 'center',
+            hidden: false,
+            title: '',
+            image: '',
+            description: 'Since 7 October, groups within the <strong>Iran-led axis of resistance have exhibited varying levels of reaction to the Gaza war</strong>, resulting in differing impacts. Hamas and Hezbollah fought intensively but were both weakened by Israel’s large-scale military campaigns. Iran engaged in a few exchanges of attacks with Israel but has attempted to avoid further escalation. Meanwhile, Syrian Assad’s regime remained inactive before being overthrown by Syrian opposition groups in December 2024. The Iraqi militias launched a limited number of attacks during the first four months of the Gaza war.' + '<br /><br />' + '<strong>The Houthis remain the most active group within the axis.</strong>',
+            location: {
+                center: [34.36204, 31.43325],
+                zoom: 7,
+                pitch: 0,
+                bearing: 0,
+                bbox: [
+                    [18.73172, 2.56429],
+                    [79.01917, 40.35184]
+                ]
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'gaza',
+                    opacity: 1,
+                    duration: 2000
+                },
+                {
+                    layer: 'gazaa-place-label',
+                    opacity: 1,
+                    duration: 2000
+                },
+                {
+                    layer: 'iran',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran_destablizing',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria_fill',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq_fill',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iraq_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'jordan-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'oman-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'sudan-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'egypt-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'saudi-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'somalia-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'ethiopia-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'eritrea-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'iran-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'syria-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+            ],
+            onChapterExit: [
+                {
+                    layer: 'gaza',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'gazaa-place-label',
+                    opacity: 0,
+                    duration: 3000
+                },
+            ]
+        },
+        {
             id: '02',
             alignment: 'none',
             hidden: false,
             title: '',
             image: '',
             description: '',
+            legendId: 'axislegend',
             location: {
                 center: [39.84162, 28.83781],
                 zoom: 2.4,
@@ -222,7 +353,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<strong>The Houthis control approximately 28% of Yemen’s territory</strong>, primarily in the north and west—its most densely populated areas. Meanwhile, the internationally recognised government holds the remainder of the country. The Houthis also maintain control over extensive sections of the western coastline, as well as most Yemeni islands in the Red Sea. Territorial control has remained unchanged since the truce in April 2022',
+            description: '<strong>The Houthis control approximately 28% of Yemen’s territory</strong>, primarily in the north and west—its most densely populated areas. Meanwhile, the internationally recognised government holds the remainder of the country. The Houthis also maintain control over extensive sections of the western coastline, as well as most Yemeni islands in the Red Sea. Territorial control has remained unchanged since the truce in April 2022.',
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
