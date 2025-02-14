@@ -415,7 +415,36 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'The Gulf of Aden and Red Sea, which connect the Indian and Pacific Oceans to the Mediterranean Sea, and thus Asia and Africa to Europe, through the Bab al-Mandab Strait are strategic bodies of water through which freedom of navigation has become an imperative for global trade. At the northern end of the Red Sea, the Suez Canal is a second vital passage for vessels bearing oil, gas and sundry goods to the Mediterranean. About 12 per cent of global maritime trade – including 40 per cent of container ship traffic – chugs through the canal each year.' + '<br />' + 'The Red Sea was already witnessing a major military build-up before October 2023. But since the onset of the war in Gaza, the Houthis have launched around 468 attacks on shipping and Israel and hit more than a hundred ships with missiles and drones in the Red Sea, Gulf of Aden and Arabian Sea, claiming that these vessels were connected to Israel, the U.S. or UK, as well as warships protecting them.',
+            description: 'The Gulf of Aden and Red Sea, which connect the Indian and Pacific Oceans to the Mediterranean Sea, and thus Asia and Africa to Europe, through the Bab al-Mandab Strait are strategic bodies of water through which freedom of navigation has become an imperative for global trade. At the northern end of the Red Sea, the Suez Canal is a second vital passage for vessels bearing oil, gas and sundry goods to the Mediterranean. About 12 per cent of global maritime trade – including 40 per cent of container ship traffic – chugs through the canal each year.',
+            location: {
+                center: [-58.54195, -34.71600],
+                zoom: 4,
+                pitch: 0,
+                bearing: 0,
+                bbox: [
+                    [31.14583, 3.10875],
+                    [68.55402, 23.97224]
+                ]
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'acled_attacks',
+                    opacity: 0,
+                    duration: 3000
+                }
+            ],
+            onChapterExit: []
+        },
+        {
+            id: '05',
+            alignment: 'center',
+            hidden: false,
+            title: '',
+            image: '',
+            description: 'The Red Sea was already witnessing a major military build-up before October 2023. But since the onset of the war in Gaza, the Houthis have launched around 468 attacks on shipping and Israel and hit more than a hundred ships with missiles and drones in the Red Sea, Gulf of Aden and Arabian Sea, claiming that these vessels were connected to Israel, the U.S. or UK, as well as warships protecting them.',
             location: {
                 center: [-58.54195, -34.71600],
                 zoom: 4,
