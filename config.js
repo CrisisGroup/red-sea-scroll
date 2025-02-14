@@ -52,7 +52,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'Since 7 October, groups within the <strong>Iran-led axis of resistance have exhibited varying levels of reaction to the Gaza war</strong>, resulting in differing impacts. Hamas and Hezbollah fought intensively but were both weakened by Israel’s large-scale military campaigns. Iran engaged in a few exchanges of attacks with Israel but has attempted to avoid further escalation. Meanwhile, Syrian Assad’s regime remained inactive before being overthrown by Syrian opposition groups in December 2024. The Iraqi militias launched a limited number of attacks during the first four months of the Gaza war.' + '<br /><br />' + '<strong>The Houthis remain the most active group within the axis.</strong>',
+            description: 'In response to the war in Gaza in October 2023, Ansar Allah, a Yemeni group known as the Houthis, has attacked Israel alongside Hizbollah and other allies in the Iran-led Axis of Resistance. Initially, the Houthis launched missiles and drones at Israel, but its most significant impact has been disrupting one of the world’s vital commercial waterways, the Red Sea, where it has struck commercial ships with missiles and drones.',
             location: {
                 center: [34.36204, 31.43325],
                 zoom: 7,
@@ -224,7 +224,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<strong>The Houthis control approximately 28% of Yemen’s territory</strong>, primarily in the north and west—its most densely populated areas. Meanwhile, the internationally recognised government holds the remainder of the country. The Houthis also maintain control over extensive sections of the western coastline, as well as most Yemeni islands in the Red Sea. Territorial control has remained unchanged since the truce in April 2022.',
+            description: 'The Houthis emerged in the 1990s as a Zaydi Shiite movement in northern Yemen and expanded, over the years, into a formidable military force, seizing the capital, Sanaa, in 2014 and engaging in a prolonged war against a Saudi-led coalition that intervened the next year. They control approximately 28 per cent of Yemen’s territory, primarily in the north and west, its most densely populated areas. They also control extensive parts of the western coastline, as well as most Yemeni islands in the Red Sea.',
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
@@ -415,7 +415,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'The Red Sea experienced <strong>growing militarisation over the past two decades</strong>, driven by escalating security concerns, particularly since piracy incidents occured in 2008. Following the Houthis’ military escalation in the Red Sea and Gulf of Aden after 7 October, several countries deployed military assets to protect shipping routes. New maritime missions have been established alongside existing ones. The US launched Operation Prosperity Guardians, while the EU initiated its Apsides mission. These efforts have further intensified militarisation in the region amid the Houthis’ continued military activities.',
+            description: 'The Gulf of Aden and Red Sea, which connect the Indian and Pacific Oceans to the Mediterranean Sea, and thus Asia and Africa to Europe, through the Bab al-Mandab Strait are strategic bodies of water through which freedom of navigation has become an imperative for global trade. At the northern end of the Red Sea, the Suez Canal is a second vital passage for vessels bearing oil, gas and sundry goods to the Mediterranean. About 12 per cent of global maritime trade – including 40 per cent of container ship traffic – chugs through the canal each year.' + '<br />' + 'The Red Sea was already witnessing a major military build-up before October 2023. But since the onset of the war in Gaza, the Houthis have launched around 468 attacks on shipping and Israel and hit more than a hundred ships with missiles and drones in the Red Sea, Gulf of Aden and Arabian Sea, claiming that these vessels were connected to Israel, the U.S. or UK, as well as warships protecting them.',
             location: {
                 center: [-58.54195, -34.71600],
                 zoom: 4,
@@ -506,7 +506,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'Due to the Houthis’ escalating attacks as of November 2024, <strong>the volume of shipping traffic along the Red Sea route has decreased by 60%</strong> over the past year. Most ships now avoid the Red Sea, opting for alternative routes. This shift has resulted in a 134% increase in the monthly average of voyages through the Cape of Good Hope.',
+            description: 'The violence has hiked up shipping costs, with no international diplomatic or military response able to stop or even slow down these attacks. The Suez Canal has seen traffic fall by 50 per cent, choking off revenues for Egypt’s fragile economy, while Israel’s Eilat port has seen a 85 per cent decline in commercial activity. Lengthened shipping times – with the journey between Asia and Europe extended by ten to fourteen days – have disrupted global supply chains. ',
             location: {
                 center: [32.79566, 27.94906],
                 zoom: 3,
@@ -669,7 +669,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'Conclusion goes here. Reprehenderit exercitation ea labore aliqua dolore consequat pariatur fugiat et fugiat Lorem reprehenderit magna. Quis cillum aute id nisi in in officia adipisicing in irure incididunt. Veniam fugiat ad quis adipisicing. Ut enim est enim aliqua ex et. Ullamco voluptate officia adipisicing deserunt anim elit. Cupidatat proident fugiat exercitation ad culpa.',
+            description: 'A Gaza ceasefire brought down Red Sea turmoil. But until it is permanent, and even if fighting continues, Red Sea coastal states and outside powers should make greater efforts at dampening military tensions in the region, while the U.S. and its allies should support the resumption of peace talks in Yemen.' + '<ol><li><strong>Support a Gaza ceasefire</strong> – Reduce the Houthis’ stated motivation for attacks.</li><li><strong>Resume talks over a permanent truce in Yemen</strong> – Re-engage the Houthis and Saudi-led coalition.</li><li><strong>Strengthen diplomacy in the Red Sea basin</strong> – Encourage regional states to manage maritime security cooperatively.</li><li><strong>Address environmental risks</strong> – Prevent further oil and chemical spills from attacked ships.</li></ol>' + 'Although the Houthis suspended their operations following the Gaza truce, they have warned that they will resume attacks if Israel renews its military campaign. Without action to contain military build-up and escalation, the likely casualty will be stability across the Red Sea basin, with effects felt worldwide.',
             location: {
                 center: [23.96141, 8.17259],
                 zoom: 2.5,
