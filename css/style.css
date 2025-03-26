@@ -40,13 +40,12 @@ a:visited {
 }
 
 #header {
-    margin: auto;
+    margin: auto auto 50%;
     width: 100%;
     position: relative;
     z-index: 5;
     height: 100vh;
     overflow: hidden;
-    margin-bottom: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,7 +141,7 @@ p {
 }
 
 #features {
-    padding: 10vh 0;
+    padding: 10vh 0 0;
 }
 
 .hidden {
@@ -176,7 +175,7 @@ p {
 .step {
     padding-bottom: 50vh;
     opacity: 0.25;
-    min-height: 50vh;
+    min-height: 100vh;
 }
 
 .step.active {
@@ -248,7 +247,7 @@ p {
     .lefty,
     .righty,
     .fully {
-        width: 90vw;
+        width: 100vw;
         margin: 0 auto;
     }
 }
@@ -262,4 +261,16 @@ p {
     .mapboxgl-ctrl-globe-minimap {
         display: none !important;
     }
+}
+
+/* CHAPTER SPECIAL */
+
+#END .main {
+    border: none;
+    border-radius: 0;
+    padding: 10% 25% 20% 25%;
+}
+
+#END.step {
+    padding: 0;
 }
