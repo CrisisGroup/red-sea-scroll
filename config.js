@@ -159,11 +159,7 @@ var config = {
             rotateAnimation: false,
             callback: 'placeVideoAt',
             onChapterEnter: [
-                {
-                    layer: 'satellite',
-                    opacity: 1,
-                    duration: 3000
-                },
+
                 /* {
                     layer: 'iran',
                     opacity: 1,
@@ -266,11 +262,7 @@ var config = {
                 }, */
             ],
             onChapterExit: [
-                {
-                    layer: 'satellite',
-                    opacity: 0,
-                    duration: 3000
-                },
+
             ]
         },
         {
