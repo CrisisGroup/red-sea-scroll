@@ -304,6 +304,16 @@
                 [center[0] - halfWidth, center[1] - halfHeight]  // bottom-left
             ];
 
+            let opacity = 0;
+            const fadeIn = setInterval(() => {
+                opacity += 0.05;
+                if (opacity >= 1) {
+                    opacity = 1;
+                    clearInterval(fadeIn);
+                }
+                map.setPaintProperty('video-layer', 'raster-opacity', opacity);
+            }, 100); // ~600ms total
+
             if (!map.getSource('video-source')) {
                 map.addSource('video-source', {
                     type: 'video',
@@ -316,11 +326,29 @@
                 map.addLayer({
                     id: 'video-layer',
                     type: 'raster',
-                    source: 'video-source'
+                    source: 'video-source',
+                    paint: {
+                        'raster-opacity': 0 // Start hidden
+                    }
                 });
             } else {
                 map.setLayoutProperty('video-layer', 'visibility', 'visible');
             }
+        }
+
+        function hideVideo() {
+            if (!map.getLayer('video-layer')) return;
+
+            let opacity = 1;
+            const fadeOut = setInterval(() => {
+                opacity -= 0.05;
+                if (opacity <= 0) {
+                    opacity = 0;
+                    clearInterval(fadeOut);
+                    map.setLayoutProperty('video-layer', 'visibility', 'none');
+                }
+                map.setPaintProperty('video-layer', 'raster-opacity', opacity);
+            }, 100);
         }
 
 

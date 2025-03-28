@@ -65,7 +65,7 @@ var config = {
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
+            callback: 'hideVideo',
             onChapterEnter: [
                 {
                     layer: 'gaza',
@@ -290,7 +290,7 @@ var config = {
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
+            callback: 'hideVideo',
             onChapterEnter: [
                 {
                     layer: 'territory',
