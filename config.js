@@ -142,28 +142,29 @@ var config = {
             ]
         },
         {
-            id: '02',
+            id: 'CH02',
             alignment: 'center',
             hidden: false,
             title: '',
             image: '',
-            description: 'The Houthis emerged in the 1990s as a Zaydi Shiite movement in northern Yemen and <strong>expanded, over the years, into a formidable military force</strong>, seizing the capital, Sanaa, in 2014 and engaging in a prolonged war against a Saudi-led coalition that intervened the next year.',
+            description: '<p><strong>In response to the war in Gaza in October 2023</strong>, Ansar Allah...</p>' + '<!--split-->' + '<p>The Houthis have attacked shipping in the Red Sea...</p>',
             legendId: '',
             location: {
-                center: [39.84162, 28.83781],
-                zoom: 2.4,
+                center: [44.205557, 15.354354],
+                zoom: 15,
                 pitch: 0,
                 bearing: 0,
-                bbox: [
-                    [18.73172, 2.56429],
-                    [79.01917, 40.35184]
-                ]
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
+            callback: 'placeVideoAt',
             onChapterEnter: [
                 {
+                    layer: 'satellite',
+                    opacity: 1,
+                    duration: 3000
+                },
+                /* {
                     layer: 'iran',
                     opacity: 1,
                     duration: 3000
@@ -262,10 +263,14 @@ var config = {
                     layer: 'syria-place-label',
                     opacity: 0,
                     duration: 3000
-                },
+                }, */
             ],
             onChapterExit: [
-                
+                {
+                    layer: 'satellite',
+                    opacity: 0,
+                    duration: 3000
+                },
             ]
         },
         {

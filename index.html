@@ -207,7 +207,21 @@
                 chapter.appendChild(image);
             }
 
-            if (record.description) {
+            if (record.description.includes('<!--split-->')) {
+                var splitParts = record.description.split('<!--split-->');
+                var multiStep = document.createElement('div');
+                multiStep.classList.add('multi-step-container');
+
+                splitParts.forEach((part, i) => {
+                    var partEl = document.createElement('div');
+                    partEl.classList.add('text-part');
+                    if (i === 0) partEl.classList.add('active');
+                    partEl.innerHTML = part.trim();
+                    multiStep.appendChild(partEl);
+                });
+
+                chapter.appendChild(multiStep);
+            } else if (record.description) {
                 var story = document.createElement('p');
                 story.innerHTML = record.description;
                 chapter.appendChild(story);
@@ -276,11 +290,46 @@
             );
         }
 
+        function placeVideoAt() {
+            const center = [44.205557, 15.354354];
+
+            const halfWidth = 0.030; // ≈ 1.2–1.3 km wide
+            const aspectRatio = 9 / 16;
+            const halfHeight = halfWidth * aspectRatio; // ≈ 0.0039
+
+            const bounds = [
+                [center[0] - halfWidth, center[1] + halfHeight], // top-left
+                [center[0] + halfWidth, center[1] + halfHeight], // top-right
+                [center[0] + halfWidth, center[1] - halfHeight], // bottom-right
+                [center[0] - halfWidth, center[1] - halfHeight]  // bottom-left
+            ];
+
+            if (!map.getSource('video-source')) {
+                map.addSource('video-source', {
+                    type: 'video',
+                    urls: [
+                        'images/houthis.mp4' // replace with your video URL
+                    ],
+                    coordinates: bounds
+                });
+
+                map.addLayer({
+                    id: 'video-layer',
+                    type: 'raster',
+                    source: 'video-source'
+                });
+            } else {
+                map.setLayoutProperty('video-layer', 'visibility', 'visible');
+            }
+        }
+
+
+
         var scroller = scrollama();
 
-        var debouncedStepEnter = debounce(async function (response) {
-            var current_chapter = config.chapters.findIndex(chap => chap.id === response.element.id);
-            var chapter = config.chapters[current_chapter];
+        var debouncedStepEnter = debounce(async function (chapterId) {
+            var chapter = config.chapters.find(chap => chap.id === chapterId);
+            if (!chapter) return;
 
             document.querySelectorAll(".legend").forEach(legend => {
                 legend.style.display = "none";
@@ -299,7 +348,8 @@
                 legendContainer.classList.add('active');
             }
 
-            response.element.classList.add('active');
+            document.getElementById(chapterId)?.classList.add('active');
+
             map[chapter.mapAnimation || 'flyTo'](chapter.location);
 
             if (chapter.onChapterEnter.length > 0) {
@@ -320,37 +370,40 @@
             }
 
             if (chapter.rotateAnimation) {
-						map.once('moveend', () => {
-							const center = map.getCenter();
-							const newCenter = [center.lng + 180, center.lat];
-							map.easeTo({ center: newCenter, duration: 45000, easing: n => n });
-						});
-					}
+                map.once('moveend', () => {
+                    const center = map.getCenter();
+                    const newCenter = [center.lng + 180, center.lat];
+                    map.easeTo({ center: newCenter, duration: 45000, easing: n => n });
+                });
+            }
 
             if (config.auto) {
-                var next_chapter = current_chapter + 1;
-                if (next_chapter < config.chapters.length) {
+                const nextIndex = config.chapters.findIndex(ch => ch.id === chapterId) + 1;
+                if (nextIndex < config.chapters.length) {
                     map.once('moveend', () => {
-                        document.querySelectorAll('[data-scrollama-index="' + next_chapter.toString() + '"]')[0].scrollIntoView();
+                        document.getElementById(config.chapters[nextIndex].id)?.scrollIntoView({ behavior: 'smooth' });
                     });
                 }
             }
         }, 100);
 
-        var debouncedStepExit = debounce(function (response) {
-            var chapter = config.chapters.find(chap => chap.id === response.element.id);
 
-            response.element.classList.remove('active');
+        var debouncedStepExit = debounce(function (chapterId) {
+            var chapter = config.chapters.find(chap => chap.id === chapterId);
+            if (!chapter) return;
+
+            document.getElementById(chapterId)?.classList.remove('active');
 
             var legendContainer = document.getElementById('legend-container');
             if (legendContainer) {
-                legendContainer.classList.remove('active'); // Removes class to trigger fade-out
+                legendContainer.classList.remove('active');
             }
 
             if (chapter.onChapterExit.length > 0) {
                 chapter.onChapterExit.forEach(setLayerOpacity);
             }
         }, 100);
+
 
         map.on("load", function () {
             if (config.use3dTerrain) {
@@ -373,21 +426,47 @@
                 });
             }
 
-            scroller
-                .setup({
-                    step: '.step',
-                    offset: 0.6,
-                    progress: true
-                })
-                .onStepEnter(debouncedStepEnter)
-                .onStepExit(debouncedStepExit);
+            // 🧠 DOM is ready, set up Scrollama
+            requestAnimationFrame(() => {
+                scroller
+                    .setup({
+                        step: '.step',
+                        offset: 0.6,
+                        progress: true
+                    })
+                    .onStepEnter(response => {
+                        const chapterId = response.element.id;
+                        debouncedStepEnter(chapterId);
+                    })
+                    .onStepExit(response => {
+                        const chapterId = response.element.id;
+                        debouncedStepExit(chapterId);
+                    });
 
-            if (config.auto) {
-                document.querySelectorAll('[data-scrollama-index="0"]')[0].scrollIntoView();
-            }
+                // 🔍 Handle substep scroll inside a chapter
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const container = entry.target.closest('.multi-step-container');
+                            if (!container) return;
+
+                            container.querySelectorAll('.text-part').forEach(el => el.classList.remove('active'));
+                            entry.target.classList.add('active');
+                        }
+                    });
+                }, {
+                    threshold: 0.6
+                });
+
+                document.querySelectorAll('.multi-step-container .text-part').forEach(el => {
+                    observer.observe(el);
+                });
+            });
         });
 
+
     </script>
+
 
 </body>
 

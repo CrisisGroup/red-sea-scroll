@@ -194,6 +194,23 @@ p {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
+.text-step {
+    margin-bottom: 50vh; /* controls spacing between steps */
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .text-step:not(:first-child) {
+    margin-top: 2em;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 1em;
+  }
+
 .step img {
     width: 100%;
 }
@@ -273,4 +290,33 @@ p {
 
 #END.step {
     padding: 0;
+}
+
+.multi-step-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.multi-step-container .text-part {
+    opacity: 0.1;
+    transition: opacity 0.6s ease;
+    margin-bottom: 60vh;
+}
+
+.multi-step-container .text-part.active {
+    opacity: 1;
+}
+
+.step .text-step {
+    all: unset;
+    display: block;
+    margin-bottom: 50vh;
+    box-shadow: none;
+}
+
+#CH02 .main, #CH02 .multi-step-container {
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
