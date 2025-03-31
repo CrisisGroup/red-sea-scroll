@@ -291,9 +291,9 @@
         }
 
         function placeVideoAt() {
-            const center = [44.205557, 15.354354];
+            const center = [47.56895620481211, 15.833825326889428];
 
-            const halfWidth = 0.030; // ≈ 1.2–1.3 km wide
+            const halfWidth = 12; // ≈ 1.2–1.3 km wide
             const aspectRatio = 9 / 16;
             const halfHeight = halfWidth * aspectRatio; // ≈ 0.0039
 
@@ -312,7 +312,7 @@
                     clearInterval(fadeIn);
                 }
                 map.setPaintProperty('video-layer', 'raster-opacity', opacity);
-            }, 100); // ~600ms total
+            }, 50); // ~600ms total
 
             if (!map.getSource('video-source')) {
                 map.addSource('video-source', {
@@ -348,10 +348,157 @@
                     map.setLayoutProperty('video-layer', 'visibility', 'none');
                 }
                 map.setPaintProperty('video-layer', 'raster-opacity', opacity);
-            }, 100);
+            }, 50);
+        };
+
+        function addStaticImageToMap() {
+            const center = [44.205557, 15.354354];
+
+            // Set the image dimensions in degrees — tweak as needed
+            const halfWidth = 12; // ≈ 1.2 km wide
+            const aspectRatio = 9 / 16; // if image is landscape
+            const halfHeight = halfWidth * aspectRatio;
+
+            const bounds = [
+                [center[0] - halfWidth, center[1] + halfHeight], // top-left
+                [center[0] + halfWidth, center[1] + halfHeight], // top-right
+                [center[0] + halfWidth, center[1] - halfHeight], // bottom-right
+                [center[0] - halfWidth, center[1] - halfHeight]  // bottom-left
+            ];
+
+            if (!map.getSource('overlay-image')) {
+                map.addSource('overlay-image', {
+                    type: 'image',
+                    url: 'images/poster.webp', // replace with your image
+                    coordinates: bounds
+                });
+
+                map.addLayer({
+                    id: 'overlay-image-layer',
+                    type: 'raster',
+                    source: 'overlay-image',
+                    paint: {
+                        'raster-opacity': 0
+                    }
+                });
+            } else {
+                map.setLayoutProperty('overlay-image-layer', 'visibility', 'visible');
+            }
+
+            // Fade in
+            let opacity = 0;
+            const fadeIn = setInterval(() => {
+                opacity += 0.05;
+                if (opacity >= 1) {
+                    opacity = 1;
+                    clearInterval(fadeIn);
+                }
+                map.setPaintProperty('overlay-image-layer', 'raster-opacity', opacity);
+            }, 30);
         }
 
 
+        // Red alert dots
+
+        const size = 150;
+
+        // This implements `StyleImageInterface`
+        // to draw a pulsing dot icon on the map.
+        const pulsingDot = {
+            width: size,
+            height: size,
+            data: new Uint8Array(size * size * 4),
+
+            // When the layer is added to the map,
+            // get the rendering context for the map canvas.
+            onAdd: function () {
+                const canvas = document.createElement('canvas');
+                canvas.width = this.width;
+                canvas.height = this.height;
+                this.context = canvas.getContext('2d');
+            },
+
+            // Call once before every frame where the icon will be used.
+            render: function () {
+                const duration = 1000;
+                const t = (performance.now() % duration) / duration;
+
+                const radius = (size / 2) * 0.3;
+                const outerRadius = (size / 2) * 0.7 * t + radius;
+                const context = this.context;
+
+                // Draw the outer circle.
+                context.clearRect(0, 0, this.width, this.height);
+                context.beginPath();
+                context.arc(
+                    this.width / 2,
+                    this.height / 2,
+                    outerRadius,
+                    0,
+                    Math.PI * 2
+                );
+                context.fillStyle = `rgba(255, 200, 200, ${1 - t})`;
+                context.fill();
+
+                // Draw the inner circle.
+                context.beginPath();
+                context.arc(
+                    this.width / 2,
+                    this.height / 2,
+                    radius,
+                    0,
+                    Math.PI * 2
+                );
+                context.fillStyle = 'rgba(163, 51, 57, 1)';
+                context.strokeStyle = 'rgba(163, 51, 57, 0.69)';
+                context.lineWidth = 2 + 4 * (1 - t);
+                context.fill();
+                context.stroke();
+
+                // Update this image's data with data from the canvas.
+                this.data = context.getImageData(
+                    0,
+                    0,
+                    this.width,
+                    this.height
+                ).data;
+
+                // Continuously repaint the map, resulting
+                // in the smooth animation of the dot.
+                map.triggerRepaint();
+
+                // Return `true` to let the map know that the image was updated.
+                return true;
+            }
+
+        };
+
+        const animationStep = 80;
+        const animatedLayers = new Set();
+
+        function enableLineAnimation(layerId) {
+            if (animatedLayers.has(layerId)) return; // Avoid duplicate loops
+            animatedLayers.add(layerId);
+
+            let step = 0;
+            const dashArraySeq = [
+                [0, 4, 3],
+                [1, 4, 2],
+                [2, 4, 1],
+                [3, 4, 0],
+                [0, 1, 3, 3],
+                [0, 2, 3, 2],
+                [0, 3, 3, 1]
+            ];
+
+            setInterval(() => {
+                step = (step + 1) % dashArraySeq.length;
+
+                if (map.getLayer(layerId)) {
+                    map.setPaintProperty(layerId, 'line-dasharray', dashArraySeq[step]);
+                }
+            }, animationStep);
+        }
 
         var scroller = scrollama();
 
@@ -415,7 +562,6 @@
             }
         }, 100);
 
-
         var debouncedStepExit = debounce(function (chapterId) {
             var chapter = config.chapters.find(chap => chap.id === chapterId);
             if (!chapter) return;
@@ -431,7 +577,6 @@
                 chapter.onChapterExit.forEach(setLayerOpacity);
             }
         }, 100);
-
 
         map.on("load", function () {
             if (config.use3dTerrain) {
@@ -454,6 +599,45 @@
                 });
             }
 
+            map.addSource('shipping-source', {
+                type: 'vector',
+                url: 'mapbox://daltonwb.2h6lniuy'
+            });
+
+            map.addLayer({
+                id: 'shippinglanes',
+                type: 'line',
+                source: 'shipping-source',
+                'source-layer': 'Shipping_routes', // <-- double-check this name
+                paint: {
+                    'line-color': '#BAD879',
+                    'line-width': 2,
+                    'line-blur': 2,
+                    'line-opacity': 0.6,
+                    'line-dasharray': [6, 10]
+                },
+                filter: [
+                    "all",
+                    [
+                        "match",
+                        ["id"],
+                        [1, 2, 4, 3],
+                        true,
+                        false
+                    ],
+                    [
+                        "match",
+                        ["get", "Name"],
+                        [
+                            "Alternative route Feb 14 2024",
+                            "Alternative route (less busy)"
+                        ],
+                        false,
+                        true
+                    ]
+                ]
+            });
+
             // 🧠 DOM is ready, set up Scrollama
             requestAnimationFrame(() => {
                 scroller
@@ -464,12 +648,52 @@
                     })
                     .onStepEnter(response => {
                         const chapterId = response.element.id;
+                        if (chapterId === 'INTRO1B') {
+                            // Only run once
+                            if (!map.hasImage('pulsing-dot')) {
+                                map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+
+                                map.addSource('dot-point', {
+                                    type: 'vector',
+                                    url: 'mapbox://daltonwb.cm8x7pfzm08hz1poczndfolq0-6rcq0'
+                                });
+
+                                map.addLayer({
+                                    id: 'layer-with-pulsing-dot',
+                                    type: 'symbol',
+                                    source: 'dot-point',
+                                    layout: {
+                                        'icon-image': 'pulsing-dot',
+                                        'icon-allow-overlap': true
+                                    },
+                                    'source-layer': 'pulsate_red_sea_dots'
+                                });
+                            } else {
+                                map.setLayoutProperty('layer-with-pulsing-dot', 'visibility', 'visible');
+                            }
+                        }
+                        if (chapterId === 'CH04' || chapterId === '05') {
+                            enableLineAnimation('shippinglanes');
+                        }
                         debouncedStepEnter(chapterId);
                     })
                     .onStepExit(response => {
                         const chapterId = response.element.id;
+
+                        if (chapterId === 'INTRO1B') {
+                            if (map.getLayer('layer-with-pulsing-dot')) {
+                                map.setLayoutProperty('layer-with-pulsing-dot', 'visibility', 'none');
+                            }
+                        }
+
+                        if (chapterId === 'CH04' || chapterId === '05') {
+                            map.setPaintProperty('shippinglanes', 'line-opacity', 0);
+                        }
+
                         debouncedStepExit(chapterId);
                     });
+
+
 
                 // 🔍 Handle substep scroll inside a chapter
                 const observer = new IntersectionObserver((entries) => {

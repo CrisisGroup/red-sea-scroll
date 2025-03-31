@@ -101,6 +101,8 @@ h4 {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 15px;
+    display: inline;
+    text-transform: uppercase;
 }
 
 p {
@@ -315,6 +317,13 @@ p {
 }
 
 #CH02 .main, #CH02 .multi-step-container {
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#CH09 .main, #CH09 .multi-step-container {
     background: none;
     border: none;
     border-radius: 0;
