@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm8xaunx6001h01s3e4aw75t7',
+    style: 'mapbox://styles/daltonwb/cm8xic7oz003f01s2ezcm1w3t',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -34,12 +34,12 @@ var config = {
                 {
                     layer: 'gaza',
                     opacity: 1,
-                    duration: 2000
+                    duration: 1000
                 },
                 {
                     layer: 'gazaa-place-label',
                     opacity: 1,
-                    duration: 2000
+                    duration: 1000
                 },
                 /* CH1 HIDES */
                 {
@@ -468,7 +468,7 @@ var config = {
             ]
         },
         {
-            id: '05',
+            id: 'CH05',
             alignment: 'center',
             hidden: false,
             title: '',
@@ -533,7 +533,7 @@ var config = {
             title: '',
             image: '',
             description: '',
-            legendId: 'acledLegend',
+            legendId: 'acledlegend',
             location: {
                 center: [-58.54195, -34.71600],
                 zoom: 4,
@@ -552,6 +552,22 @@ var config = {
                     layer: 'acled_attacks',
                     opacity: 1,
                     duration: 3000
+                },
+                /* SHIP ROUTES OPACITY */
+                {
+                    layer: 'ship_2',
+                    opacity: 0,
+                    duration: 2000
+                },
+                {
+                    layer: 'haifa-closed',
+                    opacity: 0,
+                    duration: 2000
+                },
+                {
+                    layer: 'closure',
+                    opacity: 0,
+                    duration: 2000
                 }
             ],
             onChapterExit: [
@@ -563,32 +579,38 @@ var config = {
             ]
         },
         {
-            id: '06',
+            id: '06A',
             alignment: 'center',
             hidden: false,
             title: '',
             image: '',
-            description: 'Lengthened shipping times – with the journey between Asia and Europe <strong>extended by ten to fourteen days</strong> – have disrupted global supply chains.',
-            legendId: 'acledlegend',
+            description: 'The turbulence in the Red Sea has driven up shipping costs, as firms are paying more for insurance and <strong>rerouting their vessels around the southern tip of Africa.</strong>',
             location: {
-                center: [-58.54195, -34.71600],
-                zoom: 4,
+                center: [30.49570, 13.83790],
+                zoom: 2.7,
                 pitch: 0,
                 bearing: 0,
-                bbox: [
-                    [31.14583, 3.10875],
-                    [68.55402, 23.97224]
-                ]
+                speed: 0.4,
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
                 {
-                    layer: 'satellite',
-                    opacity: 0,
-                    duration: 3000
+                    layer: 'ship_2',
+                    opacity: 1,
+                    duration: 2000
                 },
+                {
+                    layer: 'haifa-closed',
+                    opacity: 1,
+                    duration: 2000
+                },
+                {
+                    layer: 'closure',
+                    opacity: 1,
+                    duration: 2000
+                }
             ],
             onChapterExit: [
 
@@ -600,12 +622,65 @@ var config = {
             hidden: false,
             title: '',
             image: '',
+            description: 'Lengthened shipping times – with the journey between Asia and Europe <strong>extended by ten to fourteen days</strong> – have disrupted global supply chains.',
+            location: {
+                center: [20.14294, 10.25818],
+                zoom: 2.7,
+                pitch: 0,
+                bearing: 0,
+                speed: 0.4,
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'ship_2',
+                    opacity: 1,
+                    duration: 2000
+                },
+                {
+                    layer: 'haifa-closed',
+                    opacity: 1,
+                    duration: 2000
+                },
+                {
+                    layer: 'closure',
+                    opacity: 1,
+                    duration: 2000
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'ship_2',
+                    opacity: 0,
+                    duration: 2000
+                },
+                {
+                    layer: 'haifa-closed',
+                    opacity: 0,
+                    duration: 2000
+                },
+                {
+                    layer: 'closure',
+                    opacity: 0,
+                    duration: 2000
+                }
+            ]
+        },
+        {
+            id: '06C',
+            alignment: 'center',
+            hidden: false,
+            title: '',
+            image: '',
             description: '<strong>The Suez Canal has seen traffic fall by around 50 per cent</strong>, cutting deeply into important revenue for Egyptian state coffers, while <strong>Israel’s Eilat port has witnessed an 85 per cent decline in commercial activity.</strong>',
             location: {
-                center: [32.48865, 30.03400],
+                center: [32.51020, 30.02708],
                 zoom: 9,
                 pitch: 61,
                 bearing: -11.25,
+                speed: 0.4,
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -618,11 +693,10 @@ var config = {
                 },
             ],
             onChapterExit: [
-             
             ]
         },
         {
-            id: '06C',
+            id: '06D',
             alignment: 'none',
             hidden: false,
             title: '',
@@ -640,8 +714,13 @@ var config = {
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
+            callback: 'hidePhoto',
             onChapterEnter: [
+                {
+                    layer: 'eilat',
+                    opacity: 1,
+                    duration: 3000
+                },
                 {
                     layer: 'satellite',
                     opacity: 1,
@@ -651,6 +730,11 @@ var config = {
             onChapterExit: [
                 {
                     layer: 'satellite',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'eilat',
                     opacity: 0,
                     duration: 3000
                 },
@@ -695,8 +779,8 @@ var config = {
                 speed: .6
             },
             mapAnimation: 'flyTo',
-            rotateAnimation: true,
-            callback: '',
+            rotateAnimation: false,
+            callback: 'hidePhoto',
             onChapterEnter: [
                 
             ],

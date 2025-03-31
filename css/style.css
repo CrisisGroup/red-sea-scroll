@@ -290,6 +290,12 @@ p {
     padding: 10% 25% 20% 25%;
 }
 
+@media (max-width: 600px) {
+    #END .main {
+        padding: 10% 5% 20% 5%;
+    }
+}
+
 #END.step {
     padding: 0;
 }

@@ -355,7 +355,7 @@
             const center = [44.205557, 15.354354];
 
             // Set the image dimensions in degrees — tweak as needed
-            const halfWidth = 12; // ≈ 1.2 km wide
+            const halfWidth = 14; // ≈ 1.2 km wide
             const aspectRatio = 9 / 16; // if image is landscape
             const halfHeight = halfWidth * aspectRatio;
 
@@ -395,7 +395,23 @@
                 }
                 map.setPaintProperty('overlay-image-layer', 'raster-opacity', opacity);
             }, 30);
+
         }
+
+        function hidePhoto() {
+            if (!map.getLayer('overlay-image-layer')) return;
+
+            let opacity = 1;
+            const fadeOut = setInterval(() => {
+                opacity -= 0.05;
+                if (opacity <= 0) {
+                    opacity = 0;
+                    clearInterval(fadeOut);
+                    map.setLayoutProperty('overlay-image-layer', 'visibility', 'none');
+                }
+                map.setPaintProperty('overlay-image-layer', 'raster-opacity', opacity);
+            }, 50);
+        };
 
 
         // Red alert dots
@@ -498,6 +514,13 @@
                     map.setPaintProperty(layerId, 'line-dasharray', dashArraySeq[step]);
                 }
             }, animationStep);
+        }
+
+        function stopLineAnimation(layerId) {
+            if (animatedLayers[layerId]) {
+                cancelAnimationFrame(animatedLayers[layerId]);
+                delete animatedLayers[layerId];
+            }
         }
 
         var scroller = scrollama();
@@ -613,7 +636,7 @@
                     'line-color': '#BAD879',
                     'line-width': 2,
                     'line-blur': 2,
-                    'line-opacity': 0.6,
+                    'line-opacity': 0,
                     'line-dasharray': [6, 10]
                 },
                 filter: [
@@ -672,7 +695,8 @@
                                 map.setLayoutProperty('layer-with-pulsing-dot', 'visibility', 'visible');
                             }
                         }
-                        if (chapterId === 'CH04' || chapterId === '05') {
+                        if (chapterId === 'CH04' || chapterId === '05B' || chapterId === 'CH05') {
+                            map.setPaintProperty('shippinglanes', 'line-opacity', 0.6);
                             enableLineAnimation('shippinglanes');
                         }
                         debouncedStepEnter(chapterId);
@@ -686,8 +710,9 @@
                             }
                         }
 
-                        if (chapterId === 'CH04' || chapterId === '05') {
-                            map.setPaintProperty('shippinglanes', 'line-opacity', 0);
+                        if (chapterId === 'CH04' || chapterId === '05B' ||  chapterId === 'CH05') {
+                            stopLineAnimation('shippinglanes');
+                            map.setPaintProperty('shippinglanes', 'line-opacity', 0); // hide the line
                         }
 
                         debouncedStepExit(chapterId);
