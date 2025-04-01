@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm8yjhxpc006o01s2866u7vno',
+    style: 'mapbox://styles/daltonwb/cm8yu189z001901s00eboagnv',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -12,7 +12,7 @@ var config = {
     title: '<h1>The Houthis’ Red Sea Attacks Explained</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
     subtitle: '',
     start: 'BEGIN',
-    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark.<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
+    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><strong>Support</strong>: Christina Boutros and Cassandra van Douveren<br /><br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark. Originally published on X April 2025<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
     chapters: [
         {
             id: 'INTRO', // Always use INTRO as first chapter name
@@ -158,7 +158,8 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'The Houthis were acting in support of Hamas and in solidarity with the Palestinians, alongside Hizbollah and other members of the <strong>Iran-led “axis of resistance”</strong>. They have consistently linked their attacks to Israel’s war in Gaza, saying they will stand down when that war ends.',
+            legendId: 'axislegend',
+            description: 'The Houthis were acting in support of Hamas and in solidarity with the Palestinians, alongside Hizbollah and other members of the <span class="axis-nobg">Iran-led</span> <span class="axis"> “axis of resistance”.</span> <strong>They have consistently linked their attacks to Israel’s war in Gaza, saying they will stand down when that war ends.</strong>',
             location: {
                 center: [34.36204, 31.43325],
                 zoom: 7,
@@ -258,7 +259,8 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'At first, the Houthis aimed their projectiles at Israeli territory, but when those attempts failed, they switched to striking Israel-linked cargo ships in the Red Sea. Since then, their maritime campaign has expanded to disrupt traffic in <strong>one of the world’s vital commercial waterways.</strong> The U.S. and other Western navies began escorting merchant vessels, leading to exchanges of fire with the Houthis at sea and U.S. bombing of Houthi-linked sites in Yemen.',
+            legendId: 'axislegend',
+            description: 'At first, the Houthis aimed their <span class="axis">projectiles</span> at Israeli territory, but when those attempts failed, they switched to striking Israel-linked cargo ships in the Red Sea. Since then, their <span class="axis">maritime campaign</span> has expanded to disrupt traffic in <strong>one of the world’s vital commercial waterways.</strong> The U.S. and other Western navies began escorting merchant vessels, leading to exchanges of fire with the Houthis at sea and U.S. bombing of Houthi-linked sites in Yemen.',
             location: {
                 center: [34.36204, 31.43325],
                 zoom: 7,
@@ -433,7 +435,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<p>The Houthis, a Zaydi Shiite movement, emerged in the 1990s in Yemen’s northern highlands, developing <strong>over the years into a formidable military force.</strong></p>' + '<!--split-->' + '<p>In 2014, they seized the capital, Sanaa, <strong>entering a prolonged war both with other Yemeni factions</strong> and a Saudi-led coalition that intervened the next year.</p>',
+            description: '<p>The Houthis, a Zaydi Shiite movement, emerged in the 1990s in Yemen’s northern highlands, developing <strong>over the years into a formidable military force.</strong></p>' + '<!--split-->' + '<p>In 2014, they <strong>seized the capital, Sanaa, entering a prolonged war</strong> both with other Yemeni factions and a Saudi-led coalition that intervened the next year.</p>',
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
@@ -450,6 +452,11 @@ var config = {
                     opacity: 0,
                     duration: 1000
                 },
+                {
+                    layer: 'sea_pts',
+                    opacity: 0,
+                    duration: 2000
+                },
             ],
             onChapterExit: [
 
@@ -461,7 +468,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'The Houthis <strong>control approximately 28 per cent of Yemen’s territory,</strong> primarily in the north and west, the most densely populated areas. They also hold long stretches of the western coastline, as well as most Yemeni islands in the Red Sea.',
+            description: '<strong>The <span class="axis">Houthis</span> control approximately 28 per cent of Yemen’s territory,</strong> primarily in the north and west, the most densely populated areas. They also hold long stretches of the western coastline, as well as most Yemeni islands in the Red Sea.',
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
@@ -480,6 +487,11 @@ var config = {
                 },
                 {
                     layer: 'yemen-place-label',
+                    opacity: 1,
+                    duration: 2000
+                },
+                {
+                    layer: 'sea_pts',
                     opacity: 1,
                     duration: 2000
                 },
@@ -528,7 +540,7 @@ var config = {
                 },
                 {
                     layer: 'sea_pts',
-                    opacity: 0,
+                    opacity: 1,
                     duration: 3000
                 },
             ],
@@ -583,7 +595,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'At its northern end is the Suez Canal, a crucial passage for vessels bearing oil, gas and sundry goods to the Mediterranean. <strong>About 12 per cent of global maritime trade – including 40 per cent of container ship traffic</strong> – chugs through the canal each year.',
+            description: 'At its northern end is the <span class="suez">Suez Canal</span>, a crucial passage for vessels bearing oil, gas and sundry goods to the Mediterranean. <strong>About 12 per cent of global maritime trade – including 40 per cent of container ship traffic</strong> – chugs through the canal each year.',
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
@@ -596,7 +608,7 @@ var config = {
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
+            callback: 'drawCircleStroke',
             onChapterEnter: [
                 {
                     layer: 'acled_attacks',
@@ -629,7 +641,7 @@ var config = {
             title: '',
             image: '',
             legendId: 'acledlegend',
-            description: 'Since the onset of the war in Gaza, the Houthis have <strong>launched close to 500 attacks on ships in the Red Sea, Gulf of Aden and Arabian Sea</strong> (as well as warships protecting them and Israel), hitting more than a hundred with missiles or drones. They have claimed that these vessels were connected to Israel, the U.S. or the UK.',
+            description: 'Since the onset of the war in Gaza, the Houthis have <strong>launched close to 500 <span class="axis">attacks on shipping</span> and on Israel. Their missiles and drones have hit more than a hundred ships in the Red Sea, Gulf of Aden and Arabian Sea</strong>. They have claimed that these vessels were connected to Israel, the U.S. or the UK.',
             location: {
                 center: [-58.54195, -34.71600],
                 zoom: 4,
@@ -655,7 +667,13 @@ var config = {
                     duration: 1000
                 },
             ],
-            onChapterExit: []
+            onChapterExit: [
+                {
+                    layer: 'acled_attacks',
+                    opacity: 0,
+                    duration: 1000
+                },
+            ]
         },
         {
             id: '05C',
@@ -664,7 +682,7 @@ var config = {
             title: '',
             image: '',
             description: '',
-            legendId: 'acledlegend',
+            legendId: 'acled-target-legend',
             location: {
                 center: [-58.54195, -34.71600],
                 zoom: 4,
@@ -680,7 +698,7 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                    layer: 'acled_attacks',
+                    layer: 'acled_attacks_target',
                     opacity: 1,
                     duration: 1000
                 },
@@ -708,7 +726,7 @@ var config = {
             ],
             onChapterExit: [
                 {
-                    layer: 'acled_attacks',
+                    layer: 'acled_attacks_target',
                     opacity: 0,
                     duration: 1000
                 },
@@ -726,11 +744,11 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'The turbulence in the Red Sea has driven up shipping costs, as firms are paying more for insurance and <strong>rerouting their vessels around the southern tip of Africa.</strong>',
+            description: '<span class="axis">The turbulence</span> <strong>in the Red Sea</strong> has driven up shipping costs, as firms are paying more for insurance and <strong>rerouting their vessels around the southern tip of Africa.</strong>',
             location: {
                 center: [30.49570, 13.83790],
-                zoom: 2.7,
-                pitch: 0,
+                zoom: 3.2,
+                pitch: 15,
                 bearing: 0,
                 speed: 0.4,
             },
@@ -764,7 +782,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'Lengthened shipping times – with the journey between Asia and Europe <strong>extended by ten to fourteen days</strong> – have disrupted global supply chains.',
+            description: 'Lengthened shipping times – with the journey between Asia and Europe <strong>extended by ten to fourteen days</strong> – have disrupted <span class="trade">global supply chains.</span>',
             location: {
                 center: [16.61336, 5.05021],
                 zoom: 2.25,
@@ -830,11 +848,21 @@ var config = {
             onChapterEnter: [
                 {
                     layer: 'satellite',
-                    opacity: 1,
+                    opacity: .5,
                     duration: 3000
+                },
+                {
+                    layer: 'closure',
+                    opacity: 1,
+                    duration: 2000
                 },
             ],
             onChapterExit: [
+                {
+                    layer: 'closure',
+                    opacity: 0,
+                    duration: 2000
+                },
             ]
         },
         {
@@ -845,14 +873,11 @@ var config = {
             image: '',
             description: '',
             location: {
-                center: [-58.54195, -34.71600],
-                zoom: 4,
+                center: [34.96262, 29.55416],
+                zoom: 11.5,
                 pitch: 0,
                 bearing: 0,
-                bbox: [
-                    [34.89355, 29.49886],
-                    [35.02852, 29.58298]
-                ],
+                speed: 0.6,
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -865,16 +890,11 @@ var config = {
                 },
                 {
                     layer: 'satellite',
-                    opacity: 1,
+                    opacity: .5,
                     duration: 3000
                 },
             ],
             onChapterExit: [
-                {
-                    layer: 'satellite',
-                    opacity: 0,
-                    duration: 3000
-                },
                 {
                     layer: 'eilat',
                     opacity: 0,
@@ -900,7 +920,11 @@ var config = {
             rotateAnimation: false,
             callback: 'addStaticImageToMap',
             onChapterEnter: [
-                
+                {
+                    layer: 'satellite',
+                    opacity: 0,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
                 

@@ -23,14 +23,16 @@
     <div id="legends">
 
         <div class="legend" id="axislegend">
-            <h4>Territory Held by Factions</h4>
+            <h4>The Axis of Resistance</h4>
 
             <div class="legend-item">
-                <span style="background:#7c0e24;"></span> Actors that fought Israel
+                <span style="background:#7c0e24;"></span> Iranian government
             </div>
 
             <div class="legend-item">
-                <span style="background:#a5343a;"></span> Placeholder
+                <span
+                    style="display: inline-block; background-color: #a33339; background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 1px, transparent 2px, transparent 1px);"></span>
+                Armed groups
             </div>
 
         </div>
@@ -39,7 +41,7 @@
             <h4>Territory Held by Factions</h4>
 
             <div class="legend-item">
-                <span style="background:#7c0e24;"></span> Huthis
+                <span style="background:#a5343a;"></span> Houthis
             </div>
 
             <div class="legend-item">
@@ -48,7 +50,7 @@
             </div>
 
             <div class="legend-item">
-                <span style="background:#a5343a; "></span> STC and local aligned forces
+                <span style="background:#7c0e24; "></span> STC and local aligned forces
             </div>
 
             <div class="legend-item">
@@ -73,6 +75,22 @@
             <h4>Maritime Attacks</h4>
             <div class="legend-item">
                 <span style="background:#a4343a; "></span> Recorded incident
+            </div>
+        </div>
+
+        <div class="legend" id="acled-target-legend">
+            <h4>Recorded Targets</h4>
+            <div class="legend-item">
+                <span style="background:#264c24; "></span> Military 
+            </div>
+            <div class="legend-item">
+                <span style="background:#a3cede; "></span> Commercial
+            </div>
+            <div class="legend-item">
+                <span style="background:#0038b8; "></span> Israeli
+            </div>
+            <div class="legend-item">
+                <span style="background:#9c9c9c; "></span> Other/Unclear
             </div>
         </div>
 
@@ -423,6 +441,68 @@
             }, 50);
         };
 
+        function generateArc(center, radiusInKm, endAngle, points = 64) {
+            const [lng, lat] = center;
+            const coords = [];
+
+            for (let i = 0; i <= points; i++) {
+                const angle = (i * endAngle) / points;
+                const offsetX = (radiusInKm / 111.32) * Math.cos(angle * Math.PI / 180);
+                const offsetY = (radiusInKm / 110.574) * Math.sin(angle * Math.PI / 180);
+                coords.push([lng + offsetX, lat + offsetY]);
+            }
+
+            return {
+                type: "Feature",
+                geometry: {
+                    type: "LineString",
+                    coordinates: coords,
+                },
+            };
+        }
+
+        function drawCircleStroke() {
+            const centroid = [32.1169383, 30.5668484]; // [lng, lat]
+            const radiusKm = 100;
+            let currentAngle = 0;
+            const maxAngle = 360;
+
+            if (!map.getSource('suez-arc')) {
+                map.addSource('suez-arc', {
+                    type: 'geojson',
+                    data: generateArc(centroid, radiusKm, 0)
+                });
+
+                map.addLayer({
+                    id: 'suez-arc-line',
+                    type: 'line',
+                    source: 'suez-arc',
+                    paint: {
+                        'line-color': '#fff',
+                        'line-width': 6
+                    }
+                });
+            }
+
+            function animate() {
+                if (currentAngle > maxAngle) return;
+                const arc = generateArc(centroid, radiusKm, currentAngle);
+                map.getSource('suez-arc').setData(arc);
+                currentAngle += 2;
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        function clearCircleStroke() {
+            if (map.getLayer('suez-arc-line')) {
+                map.removeLayer('suez-arc-line');
+            }
+            if (map.getSource('suez-arc')) {
+                map.removeSource('suez-arc');
+            }
+        }
 
         // Red alert dots
 
@@ -680,6 +760,9 @@
                     })
                     .onStepEnter(response => {
                         const chapterId = response.element.id;
+                        if (chapterId !== 'CH05') {
+                            clearCircleStroke();
+                        }
                         if (chapterId === 'INTRO1B') {
                             // Only run once
                             if (!map.hasImage('pulsing-dot')) {
@@ -719,7 +802,7 @@
                             }
                         }
 
-                        if (chapterId === 'CH04' || chapterId === '05B' ||  chapterId === 'CH05') {
+                        if (chapterId === 'CH04' || chapterId === '05B' || chapterId === 'CH05') {
                             stopLineAnimation('shippinglanes');
                             map.setPaintProperty('shippinglanes', 'line-opacity', 0); // hide the line
                         }
