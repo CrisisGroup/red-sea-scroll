@@ -26,11 +26,11 @@
             <h4>Territory Held by Factions</h4>
 
             <div class="legend-item">
-                <span style="background:#7c0e24; border: solid 1px #fff;"></span> Actors that fought Israel
+                <span style="background:#7c0e24;"></span> Actors that fought Israel
             </div>
 
             <div class="legend-item">
-                <span style="background:#a5343a; border: solid 1px #fff;"></span> Placeholder
+                <span style="background:#a5343a;"></span> Placeholder
             </div>
 
         </div>
@@ -39,40 +39,40 @@
             <h4>Territory Held by Factions</h4>
 
             <div class="legend-item">
-                <span style="background:#7c0e24; border: solid 1px #fff;"></span> Huthis
+                <span style="background:#7c0e24;"></span> Huthis
             </div>
 
             <div class="legend-item">
-                <span style="background:#c3a588; border: solid 1px #fff;"></span> Yemen National Army, local / tribal,
+                <span style="background:#c3a588; "></span> Yemen National Army, local / tribal,
                 Islah-aligned forces
             </div>
 
             <div class="legend-item">
-                <span style="background:#a5343a; border: solid 1px #fff;"></span> STC and local aligned forces
+                <span style="background:#a5343a; "></span> STC and local aligned forces
             </div>
 
             <div class="legend-item">
-                <span style="background:#372210; border: solid 1px #fff;"></span> Shebwa Defence Forces & Giants
+                <span style="background:#372210; "></span> Shebwa Defence Forces & Giants
                 Brigades
             </div>
 
             <div class="legend-item">
-                <span style="background:#473729; border: solid 1px #fff;"></span> Hadramawt Elite Forces
+                <span style="background:#473729; "></span> Hadramawt Elite Forces
             </div>
 
             <div class="legend-item">
-                <span style="background:#764d50; border: solid 1px #fff;"></span> National Resistance Forces
+                <span style="background:#764d50; "></span> National Resistance Forces
             </div>
 
             <div class="legend-item">
-                <span style="background:#000000; border: solid 1px #fff;"></span> Flashpoints
+                <span style="background:#000000; "></span> Flashpoints
             </div>
         </div>
 
         <div class="legend" id="acledlegend">
             <h4>Maritime Attacks</h4>
             <div class="legend-item">
-                <span style="background:#a4343a; border: solid 1px #fff;"></span> Recorded incident
+                <span style="background:#a4343a; "></span> Recorded incident
             </div>
         </div>
 
@@ -255,14 +255,24 @@
 
         if (config.footer) {
             var footerText = document.createElement('p');
-            footerText.innerHTML = config.footer;
+            var footerContent = config.footer;
+            footerText.innerHTML = footerContent;
             footer.appendChild(footerText);
         }
 
         if (footer.innerText.length > 0) {
-            footer.classList.add('main');
+            footer.classList.add(config.theme);
             footer.setAttribute('id', 'footer');
-            story.appendChild(footer);
+
+            // Create and insert the image above the footer
+            var footerImage = document.createElement('img');
+            footerImage.src = 'images/icg30.svg'; // Replace with your image path
+            footerImage.alt = 'Crisis Group 30 Year Anniversary - 2025'; // Accessibility text
+            footerImage.classList.add('footer-30yr'); // Add a class for styling
+
+            // Append the image and footer to the story element
+            story.appendChild(footerImage); // Add image above the footer
+            story.appendChild(footer); // Add the footer
         }
 
         mapboxgl.accessToken = config.accessToken;
@@ -369,7 +379,7 @@
             if (!map.getSource('overlay-image')) {
                 map.addSource('overlay-image', {
                     type: 'image',
-                    url: 'images/poster.webp', // replace with your image
+                    url: 'images/houthis_2.jpg', // replace with your image
                     coordinates: bounds
                 });
 
@@ -465,7 +475,7 @@
                     0,
                     Math.PI * 2
                 );
-                context.fillStyle = 'rgba(163, 51, 57, 1)';
+                context.fillStyle = 'rgba(124, 14, 36, 1)';
                 context.strokeStyle = 'rgba(163, 51, 57, 0.69)';
                 context.lineWidth = 2 + 4 * (1 - t);
                 context.fill();
@@ -633,11 +643,10 @@
                 source: 'shipping-source',
                 'source-layer': 'Shipping_routes', // <-- double-check this name
                 paint: {
-                    'line-color': '#BAD879',
+                    'line-color': '#acd9e6',
                     'line-width': 2,
-                    'line-blur': 2,
                     'line-opacity': 0,
-                    'line-dasharray': [6, 10]
+                    'line-dasharray': [3, 2]
                 },
                 filter: [
                     "all",

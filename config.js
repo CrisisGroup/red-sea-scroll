@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm8xic7oz003f01s2ezcm1w3t',
+    style: 'mapbox://styles/daltonwb/cm8yjhxpc006o01s2866u7vno',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -9,7 +9,7 @@ var config = {
     insetPosition: 'bottom-left',
     use3dTerrain: false,
     auto: false,
-    title: '<h1>The Houthis’ Red Sea Attacks, Explained</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
+    title: '<h1>The Houthis’ Red Sea Attacks Explained</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
     subtitle: '',
     start: 'BEGIN',
     footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark.<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
@@ -38,6 +38,16 @@ var config = {
                 },
                 {
                     layer: 'gazaa-place-label',
+                    opacity: 1,
+                    duration: 1000
+                },
+                {
+                    layer: 'israel-place-label',
+                    opacity: 1,
+                    duration: 1000
+                },
+                {
+                    layer: 'med-sea',
                     opacity: 1,
                     duration: 1000
                 },
@@ -102,6 +112,22 @@ var config = {
                     opacity: 0,
                     duration: 3000
                 },
+                {
+                    layer: 'yemen_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'palestine_fill',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'palestine_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                /* END CH01 HIDES */
             ],
             onChapterExit: [
                 {
@@ -113,6 +139,16 @@ var config = {
                     layer: 'gazaa-place-label',
                     opacity: 0,
                     duration: 2000
+                },
+                {
+                    layer: 'israel-place-label',
+                    opacity: 0,
+                    duration: 1000
+                },
+                {
+                    layer: 'med-sea',
+                    opacity: 0,
+                    duration: 1000
                 },
             ]
         },
@@ -168,12 +204,27 @@ var config = {
                     duration: 3000
                 },
                 {
+                    layer: 'yemen_pattern',
+                    opacity: .5,
+                    duration: 3000
+                },
+                {
                     layer: 'lebanon_fill',
                     opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'lebanon_pattern',
+                    opacity: .5,
+                    duration: 3000
+                },
+                {
+                    layer: 'palestine_fill',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'palestine_pattern',
                     opacity: .5,
                     duration: 3000
                 },
@@ -253,12 +304,27 @@ var config = {
                     duration: 3000
                 },
                 {
+                    layer: 'yemen_pattern',
+                    opacity: .5,
+                    duration: 3000
+                },
+                {
                     layer: 'lebanon_fill',
                     opacity: 1,
                     duration: 3000
                 },
                 {
                     layer: 'lebanon_pattern',
+                    opacity: .5,
+                    duration: 3000
+                },
+                {
+                    layer: 'palestine_fill',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'palestine_pattern',
                     opacity: .5,
                     duration: 3000
                 },
@@ -315,12 +381,27 @@ var config = {
                     duration: 3000
                 },
                 {
+                    layer: 'yemen_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
                     layer: 'lebanon_fill',
                     opacity: 0,
                     duration: 3000
                 },
                 {
                     layer: 'lebanon_pattern',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'palestine_fill',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'palestine_pattern',
                     opacity: 0,
                     duration: 3000
                 },
@@ -352,7 +433,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<p>The Houthis, a Zaydi Shiite movement, emerged in the 1990s in Yemen’s northern highlands, developing <strong>over the years into a formidable military force.</strong></p>' + '<!--split-->' + '<p>In 2014, they seized the capital, Sanaa, entering a prolonged war both with other Yemeni factions and a Saudi-led coalition that intervened the next year.</p>',
+            description: '<p>The Houthis, a Zaydi Shiite movement, emerged in the 1990s in Yemen’s northern highlands, developing <strong>over the years into a formidable military force.</strong></p>' + '<!--split-->' + '<p>In 2014, they seized the capital, Sanaa, <strong>entering a prolonged war both with other Yemeni factions</strong> and a Saudi-led coalition that intervened the next year.</p>',
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
@@ -397,12 +478,22 @@ var config = {
                     opacity: 1,
                     duration: 2000
                 },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 1,
+                    duration: 2000
+                },
             ],
             onChapterExit: [
                 {
                     layer: 'yemen_fill',
                     opacity: 0,
-                    duration: 1000
+                    duration: 500
+                },
+                {
+                    layer: 'yemen-place-label',
+                    opacity: 0,
+                    duration: 500
                 },
             ]
         },
@@ -428,7 +519,17 @@ var config = {
                 {
                     layer: 'territory',
                     opacity: 1,
-                    duration: 1000
+                    duration: 500
+                },
+                {
+                    layer: 'bg-countries-labels',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'sea_pts',
+                    opacity: 0,
+                    duration: 3000
                 },
             ],
             onChapterExit: [
@@ -436,7 +537,7 @@ var config = {
                 {
                     layer: 'territory',
                     opacity: 0,
-                    duration: 1000
+                    duration: 1500
                 },
             ]
         },
@@ -446,7 +547,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'The Red Sea is a strategic body of water connecting the Indian and Pacific Oceans to the Mediterranean Sea, and thus Asia and Africa to Europe, through the Bab al-Mandab Strait. Freedom of navigation in the Red Sea has become imperative for global trade.',
+            description: 'The Red Sea is <strong>a strategic body of water</strong> connecting the Indian and Pacific Oceans to the Mediterranean Sea, and thus Asia and Africa to Europe, through the Bab al-Mandab Strait. <strong>Freedom of navigation in the Red Sea has become imperative for <span class="trade">global trade.</span></strong>',
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
@@ -461,7 +562,16 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
-
+                {
+                    layer: 'bg-countries-labels',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'sea_pts',
+                    opacity: 1,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
                 
@@ -492,9 +602,25 @@ var config = {
                     layer: 'acled_attacks',
                     opacity: 0,
                     duration: 3000
-                }
+                },
+                {
+                    layer: 'bg-countries-labels',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'sea_pts',
+                    opacity: 1,
+                    duration: 3000
+                },
             ],
-            onChapterExit: []
+            onChapterExit: [
+                {
+                    layer: 'sea_pts',
+                    opacity: 0,
+                    duration: 3000
+                },
+            ]
         },
         {
             id: '05B',
@@ -502,7 +628,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            legendId: 'acledLegend',
+            legendId: 'acledlegend',
             description: 'Since the onset of the war in Gaza, the Houthis have <strong>launched close to 500 attacks on ships in the Red Sea, Gulf of Aden and Arabian Sea</strong> (as well as warships protecting them and Israel), hitting more than a hundred with missiles or drones. They have claimed that these vessels were connected to Israel, the U.S. or the UK.',
             location: {
                 center: [-58.54195, -34.71600],
@@ -521,8 +647,13 @@ var config = {
                 {
                     layer: 'acled_attacks',
                     opacity: 1,
-                    duration: 3000
-                }
+                    duration: 1000
+                },
+                {
+                    layer: 'bg-countries-labels',
+                    opacity: 1,
+                    duration: 1000
+                },
             ],
             onChapterExit: []
         },
@@ -551,7 +682,12 @@ var config = {
                 {
                     layer: 'acled_attacks',
                     opacity: 1,
-                    duration: 3000
+                    duration: 1000
+                },
+                {
+                    layer: 'bg-countries-labels',
+                    opacity: 1,
+                    duration: 1000
                 },
                 /* SHIP ROUTES OPACITY */
                 {
@@ -574,8 +710,14 @@ var config = {
                 {
                     layer: 'acled_attacks',
                     opacity: 0,
-                    duration: 3000
-                }
+                    duration: 1000
+                },
+                {
+                    layer: 'bg-countries-labels',
+                    opacity: 0,
+                    duration: 2000
+                },
+
             ]
         },
         {
@@ -624,11 +766,11 @@ var config = {
             image: '',
             description: 'Lengthened shipping times – with the journey between Asia and Europe <strong>extended by ten to fourteen days</strong> – have disrupted global supply chains.',
             location: {
-                center: [20.14294, 10.25818],
-                zoom: 2.7,
+                center: [16.61336, 5.05021],
+                zoom: 2.25,
                 pitch: 0,
                 bearing: 0,
-                speed: 0.4,
+                speed: 0.2,
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -794,7 +936,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<h4>What Should be Done?</h4> The U.S., European countries and regional governments should support efforts to reinstate the ceasefire in Gaza, which had previously helped de-escalate Red Sea tensions by addressing the Houthis’ stated motivation for attacks.' + '<br /><br />' + 'The U.S., the UN, Oman and other mediators should also work to resume talks about a permanent truce in Yemen by re-engaging the Houthis and the Saudi-led coalition. Red Sea coastal states, especially Saudi Arabia and Egypt, should strengthen existing efforts to bolster maritime diplomacy and conflict prevention, and invite other key players from the region as observers. European support for security cooperation in these waters could ease the naval burden on Western powers, and offer a more effective long-term path to peace in the Red Sea than military action.' + '<br /><br />' + 'The UN should establish a task force dedicated to addressing environmental threats in the Red Sea and Gulf of Aden. Its mission should include monitoring ships damaged or sunk by Houthi attacks, leading salvage operations, and coordinating with regional authorities and environmental organisations to prevent oil and chemical spills.',
+            description: '<h4>What Should be Done?</h4>&#8195;The U.S., European countries and regional governments should support efforts to reinstate the ceasefire in Gaza, which had previously helped de-escalate Red Sea tensions by addressing the Houthis’ stated motivation for attacks.' + '<br /><br />' + 'The U.S., the UN, Oman and other mediators should also work to resume talks about a permanent truce in Yemen by re-engaging the Houthis and the Saudi-led coalition. Red Sea coastal states, especially Saudi Arabia and Egypt, should strengthen existing efforts to bolster maritime diplomacy and conflict prevention, and invite other key players from the region as observers. European support for security cooperation in these waters could ease the naval burden on Western powers, and offer a more effective long-term path to peace in the Red Sea than military action.' + '<br /><br />' + 'The UN should establish a task force dedicated to addressing environmental threats in the Red Sea and Gulf of Aden. Its mission should include monitoring ships damaged or sunk by Houthi attacks, leading salvage operations, and coordinating with regional authorities and environmental organisations to prevent oil and chemical spills.',
             location: {
                 center: [-77.13153, 38.94273],
                 zoom: 3.5,
