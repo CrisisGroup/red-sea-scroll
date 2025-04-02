@@ -189,7 +189,6 @@ p {
     padding: 0;
     z-index: 6;
     position: relative;
-    background: #DBCEC2;
     margin-bottom: -5px;
 }
 
@@ -288,6 +287,10 @@ p {
     text-shadow: 0 0 10px #000000;
 }
 
+#legend-black {
+    color: #000;
+}
+
 .legend.active {
     display: block;
     opacity: 1;
@@ -335,24 +338,6 @@ p {
     }
 }
 
-/* CHAPTER SPECIAL */
-
-#END .main {
-    border: none;
-    border-radius: 0;
-    padding: 10% 25% 20% 25%;
-}
-
-@media (max-width: 600px) {
-    #END .main {
-        padding: 10% 5% 20% 5%;
-    }
-}
-
-#END.step {
-    padding: 0;
-}
-
 .multi-step-container {
     display: flex;
     flex-direction: column;
@@ -374,6 +359,8 @@ p {
     margin-bottom: 50vh;
     box-shadow: none;
 }
+
+/* CHAPTER SPECIAL */
 
 #CH02 .main, #CH02 .multi-step-container {
     background: none;

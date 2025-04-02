@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm8yu189z001901s00eboagnv',
+    style: 'mapbox://styles/daltonwb/cm900q017006h01s01znu8cfv',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -20,7 +20,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: 'In October 2023, as <strong>Israel bombarded Gaza in response to Hamas’s attacks</strong>, Ansar Allah, the Yemeni group known as the Houthis, began firing missiles and armed drones at Israeli targets.',
+            description: 'In October 2023, as <strong>Israel bombarded Gaza in response to Hamas’s attacks</strong>, Ansar Allah, the Yemeni group known as the <strong>Houthis, began firing missiles</strong> and armed drones at Israeli targets.',
             location: {
                 center: [34.36204, 31.43325],
                 zoom: 7,
@@ -400,17 +400,17 @@ var config = {
                 {
                     layer: 'palestine_fill',
                     opacity: 0,
-                    duration: 3000
+                    duration: 1000
                 },
                 {
                     layer: 'palestine_pattern',
                     opacity: 0,
-                    duration: 3000
+                    duration: 1000
                 },
                 {
                     layer: 'yemen-place-label',
                     opacity: 0,
-                    duration: 3000
+                    duration: 1000
                 },
                 {
                     layer: 'iran-place-label',
@@ -486,6 +486,11 @@ var config = {
                     duration: 2000
                 },
                 {
+                    layer: 'yemen_pattern',
+                    opacity: .5,
+                    duration: 2000
+                },
+                {
                     layer: 'yemen-place-label',
                     opacity: 1,
                     duration: 2000
@@ -499,6 +504,11 @@ var config = {
             onChapterExit: [
                 {
                     layer: 'yemen_fill',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'yemen_pattern',
                     opacity: 0,
                     duration: 500
                 },
@@ -851,18 +861,10 @@ var config = {
                     opacity: .5,
                     duration: 3000
                 },
-                {
-                    layer: 'closure',
-                    opacity: 1,
-                    duration: 2000
-                },
+
             ],
             onChapterExit: [
-                {
-                    layer: 'closure',
-                    opacity: 0,
-                    duration: 2000
-                },
+
             ]
         },
         {
@@ -956,7 +958,7 @@ var config = {
         },
         {
             id: 'END',
-            alignment: 'full',
+            alignment: 'center',
             hidden: false,
             title: '',
             image: '',
