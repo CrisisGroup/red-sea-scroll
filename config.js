@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm9072gzy000j01s89asi5zrc',
+    style: 'mapbox://styles/daltonwb/cm90cn17u002m01s3exe49i6p',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -642,10 +642,10 @@ var config = {
             image: '',
             description: 'At its northern end is the <span class="suez">Suez Canal</span>, a crucial passage for vessels bearing oil, gas and sundry goods to the Mediterranean. <strong>About 12 per cent of global maritime trade – including 40 per cent of container ship traffic</strong> – chugs through the canal each year.',
             location: {
-                center: [31.90525, 28.86255],
-                zoom: 6,
+                center: [33.40312, 28.33197],
+                zoom: 6.5,
                 pitch: 60,
-                bearing: -43.2,
+                bearing: -32,
                 speed: 0.2,
             },
             mapAnimation: 'flyTo',
@@ -667,10 +667,20 @@ var config = {
                     opacity: 1,
                     duration: 3000
                 },
+                {
+                    layer: 'sinai',
+                    opacity: 1,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
                 {
                     layer: 'sea_pts',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'sinai',
                     opacity: 0,
                     duration: 3000
                 },
