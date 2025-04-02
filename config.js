@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm900q017006h01s01znu8cfv',
+    style: 'mapbox://styles/daltonwb/cm901hqnf006101s6fqgu55p2',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -651,7 +651,7 @@ var config = {
             title: '',
             image: '',
             legendId: 'acledlegend',
-            description: 'Since the onset of the war in Gaza, the Houthis have <strong>launched close to 500 <span class="axis">attacks on shipping</span> and on Israel. Their missiles and drones have hit more than a hundred ships in the Red Sea, Gulf of Aden and Arabian Sea</strong>. They have claimed that these vessels were connected to Israel, the U.S. or the UK.',
+            description: 'Since the onset of the war in Gaza, the Houthis have <strong>launched close to 500 <span class="axis">attacks on shipping</span> and on Israel. Their missiles and drones have hit more than a hundred ships in the Red Sea, Gulf of Aden and Arabian Sea</strong>. They have claimed that these vessels were connected to Israel, the UK or the U.S.',
             location: {
                 center: [-58.54195, -34.71600],
                 zoom: 4,
@@ -844,7 +844,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<strong>The Suez Canal has seen traffic fall by around 50 per cent</strong>, cutting deeply into important revenue for Egyptian state coffers, while <strong>Israel’s Eilat port has witnessed an 85 per cent decline in commercial activity.</strong>',
+            description: '<strong>The Suez Canal has seen traffic fall by around 50 per cent</strong>, cutting deeply into important revenue for Egyptian state coffers.',
             location: {
                 center: [32.51020, 30.02708],
                 zoom: 9,
@@ -869,17 +869,17 @@ var config = {
         },
         {
             id: '06D',
-            alignment: 'none',
+            alignment: 'center',
             hidden: false,
             title: '',
             image: '',
-            description: '',
+            description: 'While <strong>Israel’s Eilat port has witnessed an 85 per cent decline in commercial activity.</strong>',
             location: {
                 center: [34.96262, 29.55416],
                 zoom: 11.5,
                 pitch: 0,
                 bearing: 0,
-                speed: 0.6,
+                speed: 0.4,
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,

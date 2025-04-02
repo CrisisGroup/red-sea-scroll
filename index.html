@@ -24,18 +24,18 @@
 
         <div class="legend" id="axislegend">
             <div id="legend-black">
-            <h4 id="legend-black">The Axis of Resistance</h4>
+                <h4 id="legend-black">The Axis of Resistance</h4>
 
-            <div class="legend-item">
-                <span style="background:#7c0e24;"></span> Iranian government
-            </div>
+                <div class="legend-item">
+                    <span style="background:#7c0e24;"></span> Iranian government
+                </div>
 
-            <div class="legend-item">
-                <span
-                    style="display: inline-block; background-color: #a33339; background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 1px, transparent 2px, transparent 1px);"></span>
-                Armed groups
+                <div class="legend-item">
+                    <span
+                        style="display: inline-block; background-color: #a33339; background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 1px, transparent 2px, transparent 1px);"></span>
+                    Armed groups
+                </div>
             </div>
-        </div>
 
         </div>
 
@@ -83,16 +83,16 @@
         <div class="legend" id="acled-target-legend">
             <h4>Recorded Targets</h4>
             <div class="legend-item">
-                <span style="background:#264c24; "></span> Military 
+                <span style="background:#a3cede; border-color: #152d5b; "></span> Commercial
             </div>
             <div class="legend-item">
-                <span style="background:#a3cede; "></span> Commercial
+                <span style="background:#264c24; border-color: #629060; "></span> Military
             </div>
             <div class="legend-item">
-                <span style="background:#0038b8; "></span> Israeli
+                <span style="background:#0038b8; border-color: #fff;"></span> Israeli
             </div>
             <div class="legend-item">
-                <span style="background:#9c9c9c; "></span> Other/Unclear
+                <span style="background:#9c9c9c; border-color: #d6d6d6; "></span> Other/Unclear
             </div>
         </div>
 
@@ -482,6 +482,9 @@
                     paint: {
                         'line-color': '#fff',
                         'line-width': 6
+                    },
+                    layout: {
+                        'line-pitch-alignment': 'viewport'
                     }
                 });
             }
