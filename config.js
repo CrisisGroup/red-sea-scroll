@@ -12,7 +12,7 @@ var config = {
     title: '<h1>The Houthis’ Red Sea Attacks Explained</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
     subtitle: '',
     start: 'BEGIN',
-    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><strong>Support</strong>: Christina Boutros and Cassandra van Douveren<br /><br /><strong>Video and photo credit: REUTERS and AFP<br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark. Originally published on X April 2025<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
+    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><strong>Support</strong>: Christina Boutros and Cassandra van Douveren<br /><br /><strong>Video and photo credit</strong>: REUTERS and AFP<br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark. Originally published on X April 2025<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
     chapters: [
         {
             id: 'INTRO', // Always use INTRO as first chapter name
@@ -481,16 +481,6 @@ var config = {
             callback: 'hideVideo',
             onChapterEnter: [
                 {
-                    layer: 'yemen_fill',
-                    opacity: 1,
-                    duration: 2000
-                },
-                {
-                    layer: 'yemen_pattern',
-                    opacity: .5,
-                    duration: 2000
-                },
-                {
                     layer: 'yemen-place-label',
                     opacity: 1,
                     duration: 2000
@@ -499,6 +489,26 @@ var config = {
                     layer: 'sea_pts',
                     opacity: 1,
                     duration: 2000
+                },
+                {
+                    layer: 'sanaa',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'sanaa_label',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'sanaa',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'territory_houthi',
+                    opacity: 1,
+                    duration: 500
                 },
             ],
             onChapterExit: [
@@ -553,6 +563,16 @@ var config = {
                     opacity: 1,
                     duration: 3000
                 },
+                {
+                    layer: 'sanaa',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'sanaa_label',
+                    opacity: 1,
+                    duration: 500
+                },
             ],
             onChapterExit: [
 
@@ -560,6 +580,21 @@ var config = {
                     layer: 'territory',
                     opacity: 0,
                     duration: 1500
+                },
+                {
+                    layer: 'sanaa',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'sanaa_label',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'territory_houthi',
+                    opacity: 0,
+                    duration: 500
                 },
             ]
         },
@@ -607,14 +642,11 @@ var config = {
             image: '',
             description: 'At its northern end is the <span class="suez">Suez Canal</span>, a crucial passage for vessels bearing oil, gas and sundry goods to the Mediterranean. <strong>About 12 per cent of global maritime trade – including 40 per cent of container ship traffic</strong> – chugs through the canal each year.',
             location: {
-                center: [-77.020636, 38.886900],
-                zoom: 8.5,
+                center: [31.90525, 28.86255],
+                zoom: 6,
                 pitch: 60,
                 bearing: -43.2,
-                bbox: [
-                    [14.79088, 7.81301],
-                    [80.85535, 33.69661]
-                ]
+                speed: 0.2,
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -878,7 +910,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<p>In response to the Houthis’ campaign, the U.S. and its allies launched Operation Prosperity Guardian, a multinational naval mission to secure Red Sea trade routes. The EU embarked on a similar endeavour called Operation Aspides. The U.S. and UK <strong>conducted 931 airstrikes on Houthi positions between January 2024 and January 2025</strong>, when the Gaza ceasefire came into effect, but these strikes failed to deter the group, which continued its attacks throughout.</p>' + '<!--split-->' + '<p>The Houthis largely held their fire during the Gaza truce, but they threatened to resume attacks when Israel cut off aid shipments into the enclave, in violation of the ceasefire terms. In response, and perhaps in retaliation for Houthi fire at its aircraft, <strong>the U.S. launched a new round of airstrikes on Houthi positions in Yemen on 15 March.</strong> Now, with the Gaza ceasefire shattered, the brief calm in the Red Sea is also over.</p>' ,
+            description: '<p>In response to the Houthis’ campaign, the U.S. and its allies launched Operation Prosperity Guardian, a multinational naval mission to secure Red Sea trade routes. The EU embarked on a similar endeavour called Operation Aspides. The U.S. and UK <strong>conducted 931 airstrikes on Houthi positions between January 2024 and January 2025</strong>, when the Gaza ceasefire came into effect, but these strikes failed to deter the group, which continued its attacks throughout that period.<br /><br /><span class="photocaption">Photo: People gather on the rubble of a house hit by a U.S. strike in Saada, Yemen. March 16, 2025.</span></p>' + '<!--split-->' + '<p>The Houthis largely held their fire during the Gaza truce, but they threatened to resume attacks when Israel cut off aid shipments into the enclave, in violation of the ceasefire terms. In response, and perhaps in retaliation for Houthi fire at its aircraft, <strong>the U.S. launched a new round of airstrikes on Houthi positions in Yemen on 15 March.</strong> Now, with the Gaza ceasefire shattered, the brief calm in the Red Sea is also over.</p>' ,
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
