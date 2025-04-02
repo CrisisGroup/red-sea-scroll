@@ -368,6 +368,7 @@ p {
     border: none;
     border-radius: 0;
     box-shadow: none;
+    padding: 0;
 }
 
 #CH09 .main, #CH09 .multi-step-container {
@@ -375,4 +376,5 @@ p {
     border: none;
     border-radius: 0;
     box-shadow: none;
+    padding: 0;
 }

@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm901hqnf006101s6fqgu55p2',
+    style: 'mapbox://styles/daltonwb/cm9072gzy000j01s89asi5zrc',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -12,7 +12,7 @@ var config = {
     title: '<h1>The Houthis’ Red Sea Attacks Explained</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
     subtitle: '',
     start: 'BEGIN',
-    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><strong>Support</strong>: Christina Boutros and Cassandra van Douveren<br /><br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark. Originally published on X April 2025<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
+    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><strong>Support</strong>: Christina Boutros and Cassandra van Douveren<br /><br /><strong>Video and photo credit: REUTERS and AFP<br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark. Originally published on X April 2025<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
     chapters: [
         {
             id: 'INTRO', // Always use INTRO as first chapter name
@@ -754,13 +754,13 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<span class="axis">The turbulence</span> <strong>in the Red Sea</strong> has driven up shipping costs, as firms are paying more for insurance and <strong>rerouting their vessels around the southern tip of Africa.</strong>',
+            description: '<span class="axis">The turbulence</span> <strong>in the Red Sea</strong> has driven up shipping costs, as firms are paying more for insurance and <strong>rerouting their vessels around the southern tip of Africa.</strong>' + '<br /><br />' + 'Lengthened shipping times – with the journey between Asia and Europe <strong>extended by ten to fourteen days</strong> – have disrupted <span class="trade">global supply chains.</span>',
             location: {
-                center: [30.49570, 13.83790],
-                zoom: 3.2,
-                pitch: 15,
+                center: [16.61336, 5.05021],
+                zoom: 2.25,
+                pitch: 0,
                 bearing: 0,
-                speed: 0.4,
+                speed: 0.3,
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -784,58 +784,6 @@ var config = {
             ],
             onChapterExit: [
 
-            ]
-        },
-        {
-            id: '06B',
-            alignment: 'center',
-            hidden: false,
-            title: '',
-            image: '',
-            description: 'Lengthened shipping times – with the journey between Asia and Europe <strong>extended by ten to fourteen days</strong> – have disrupted <span class="trade">global supply chains.</span>',
-            location: {
-                center: [16.61336, 5.05021],
-                zoom: 2.25,
-                pitch: 0,
-                bearing: 0,
-                speed: 0.2,
-            },
-            mapAnimation: 'flyTo',
-            rotateAnimation: false,
-            callback: '',
-            onChapterEnter: [
-                {
-                    layer: 'ship_2',
-                    opacity: 1,
-                    duration: 2000
-                },
-                {
-                    layer: 'haifa-closed',
-                    opacity: 1,
-                    duration: 2000
-                },
-                {
-                    layer: 'closure',
-                    opacity: 1,
-                    duration: 2000
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'ship_2',
-                    opacity: 0,
-                    duration: 2000
-                },
-                {
-                    layer: 'haifa-closed',
-                    opacity: 0,
-                    duration: 2000
-                },
-                {
-                    layer: 'closure',
-                    opacity: 0,
-                    duration: 2000
-                }
             ]
         },
         {
@@ -891,6 +839,16 @@ var config = {
                     duration: 3000
                 },
                 {
+                    layer: 'egypt',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'Israel',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
                     layer: 'satellite',
                     opacity: .5,
                     duration: 3000
@@ -899,6 +857,16 @@ var config = {
             onChapterExit: [
                 {
                     layer: 'eilat',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'egypt',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'Israel',
                     opacity: 0,
                     duration: 3000
                 },
@@ -950,10 +918,28 @@ var config = {
             rotateAnimation: false,
             callback: 'hidePhoto',
             onChapterEnter: [
-                
+                {
+                    layer: 'dc',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'dc_label',
+                    opacity: 1,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
-                
+                {
+                    layer: 'dc',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'dc_label',
+                    opacity: 0,
+                    duration: 3000
+                },
             ]
         },
         {
