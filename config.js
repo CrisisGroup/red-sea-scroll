@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm90cn17u002m01s3exe49i6p',
+    style: 'mapbox://styles/daltonwb/cm9072gzy000j01s89asi5zrc',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -774,7 +774,12 @@ var config = {
                     layer: 'closure',
                     opacity: 0,
                     duration: 2000
-                }
+                },
+                {
+                    layer: 'israeli-port-route-closed',
+                    opacity: 0,
+                    duration: 2000
+                },
             ],
             onChapterExit: [
                 {
@@ -822,7 +827,12 @@ var config = {
                     layer: 'closure',
                     opacity: 1,
                     duration: 2000
-                }
+                },
+                {
+                    layer: 'israeli-port-route-closed',
+                    opacity: 1,
+                    duration: 2000
+                },
             ],
             onChapterExit: [
 
@@ -936,6 +946,26 @@ var config = {
                     layer: 'satellite',
                     opacity: 0,
                     duration: 3000
+                },
+                {
+                    layer: 'ship_2',
+                    opacity: 0,
+                    duration: 2000
+                },
+                {
+                    layer: 'haifa-closed',
+                    opacity: 0,
+                    duration: 2000
+                },
+                {
+                    layer: 'closure',
+                    opacity: 0,
+                    duration: 2000
+                },
+                {
+                    layer: 'israeli-port-route-closed',
+                    opacity: 0,
+                    duration: 2000
                 },
             ],
             onChapterExit: [
