@@ -12,7 +12,7 @@ var config = {
     title: '<h1>The Houthis’ Red Sea Attacks Explained</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
     subtitle: '',
     start: 'BEGIN',
-    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><strong>Support</strong>: Christina Boutros and Cassandra van Douveren<br /><br /><strong>Video and photo credit</strong>: REUTERS and AFP<br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark. Originally published on 3 April 2025<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
+    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><strong>Support</strong>: Christina Boutros and Cassandra van Douveren<br /><br /><strong>Video and photo credit</strong>: Reuters and AFP<br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark. Originally published on 3 April 2025<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
     chapters: [
         {
             id: 'INTRO', // Always use INTRO as first chapter name
@@ -898,7 +898,7 @@ var config = {
             onChapterEnter: [
                 {
                     layer: 'satellite',
-                    opacity: .5,
+                    opacity: .6,
                     duration: 3000
                 },
 
@@ -947,7 +947,7 @@ var config = {
                 },
                 {
                     layer: 'satellite',
-                    opacity: .5,
+                    opacity: .6,
                     duration: 3000
                 },
             ],
