@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/daltonwb/cm9072gzy000j01s89asi5zrc',
+    style: 'mapbox://styles/daltonwb/cm91d0z9700j201s475vbfszn',
     accessToken: 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw',
     projection: 'globe',
     inset: true,
@@ -12,7 +12,7 @@ var config = {
     title: '<h1>The Houthis’ Red Sea Attacks Explained</h1><video id="background-video" autoplay loop muted poster="images/poster.webp"><source src="images/aerial.webm" type="video/webm">',
     subtitle: '',
     start: 'BEGIN',
-    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><strong>Support</strong>: Christina Boutros and Cassandra van Douveren<br /><br /><strong>Video and photo credit</strong>: REUTERS and AFP<br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark. Originally published on X April 2025<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
+    footer: '<strong>Lead contributors</strong>: Ahmed Nagi<br /><strong>Visualisations</strong>: Claire Boccon-Gibod and Paul Franz <br /><strong>Support</strong>: Christina Boutros and Cassandra van Douveren<br /><br /><strong>Video and photo credit</strong>: REUTERS and AFP<br /><strong>Sources and Data</strong>: Crisis Group research, ACLED, UNCTAD / Marine Benchmark. Originally published on 3 April 2025<br /><br /><a href="https://www.crisisgroup.org/legal" target="_blank">Privacy Policy & Legal</a>',
     chapters: [
         {
             id: 'INTRO', // Always use INTRO as first chapter name
@@ -435,7 +435,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<p>The Houthis, a Zaydi Shiite movement, emerged in the 1990s in Yemen’s northern highlands, developing <strong>over the years into a formidable military force.</strong></p>' + '<!--split-->' + '<p>In 2014, they <strong>seized the capital, Sanaa, entering a prolonged war</strong> both with other Yemeni factions and a Saudi-led coalition that intervened the next year.</p>',
+            description: '<p>The Houthis, a Zaydi Shiite movement, emerged in the 1990s in Yemen’s northern highlands, <strong>developing over the years into a formidable military force.</strong></p>' + '<!--split-->' + '<p>In 2014, they <strong>seized the capital, Sanaa, entering a prolonged war</strong> both with other Yemeni factions and a Saudi-led coalition that intervened the next year.</p>',
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
@@ -456,6 +456,11 @@ var config = {
                     layer: 'sea_pts',
                     opacity: 0,
                     duration: 2000
+                },
+                {
+                    layer: 'water-line-label',
+                    opacity: 0,
+                    duration: 500
                 },
             ],
             onChapterExit: [
@@ -507,6 +512,11 @@ var config = {
                 },
                 {
                     layer: 'territory_houthi',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'water-line-label',
                     opacity: 1,
                     duration: 500
                 },
@@ -573,6 +583,11 @@ var config = {
                     opacity: 1,
                     duration: 500
                 },
+                {
+                    layer: 'water-line-label',
+                    opacity: 1,
+                    duration: 500
+                },
             ],
             onChapterExit: [
 
@@ -593,6 +608,11 @@ var config = {
                 },
                 {
                     layer: 'territory_houthi',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'water-line-label',
                     opacity: 0,
                     duration: 500
                 },
@@ -672,6 +692,16 @@ var config = {
                     opacity: 1,
                     duration: 3000
                 },
+                {
+                    layer: 'straits',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
+                    layer: 'Saudi Arabia',
+                    opacity: 1,
+                    duration: 3000
+                },
             ],
             onChapterExit: [
                 {
@@ -681,6 +711,16 @@ var config = {
                 },
                 {
                     layer: 'sinai',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'Saudi Arabia',
+                    opacity: 0,
+                    duration: 3000
+                },
+                {
+                    layer: 'straits',
                     opacity: 0,
                     duration: 3000
                 },
@@ -901,6 +941,11 @@ var config = {
                     duration: 3000
                 },
                 {
+                    layer: 'Jordan',
+                    opacity: 1,
+                    duration: 3000
+                },
+                {
                     layer: 'satellite',
                     opacity: .5,
                     duration: 3000
@@ -922,6 +967,11 @@ var config = {
                     opacity: 0,
                     duration: 3000
                 },
+                {
+                    layer: 'Jordan',
+                    opacity: 0,
+                    duration: 3000
+                },
             ]
         },
         {
@@ -930,7 +980,8 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: '<p>In response to the Houthis’ campaign, the U.S. and its allies launched Operation Prosperity Guardian, a multinational naval mission to secure Red Sea trade routes. The EU embarked on a similar endeavour called Operation Aspides. The U.S. and UK <strong>conducted 931 airstrikes on Houthi positions between January 2024 and January 2025</strong>, when the Gaza ceasefire came into effect, but these strikes failed to deter the group, which continued its attacks throughout that period.<br /><br /><span class="photocaption">Photo: People gather on the rubble of a house hit by a U.S. strike in Saada, Yemen. March 16, 2025.</span></p>' + '<!--split-->' + '<p>The Houthis largely held their fire during the Gaza truce, but they threatened to resume attacks when Israel cut off aid shipments into the enclave, in violation of the ceasefire terms. In response, and perhaps in retaliation for Houthi fire at its aircraft, <strong>the U.S. launched a new round of airstrikes on Houthi positions in Yemen on 15 March.</strong> Now, with the Gaza ceasefire shattered, the brief calm in the Red Sea is also over.</p>' ,
+            legendId: 'photolegend',
+            description: '<p>In response to the Houthis’ campaign, the U.S. and its allies launched Operation Prosperity Guardian, a multinational naval mission to secure Red Sea trade routes. The EU embarked on a similar endeavour called Operation Aspides. The U.S. and UK <strong>conducted 931 airstrikes on Houthi positions between January 2024 and January 2025</strong>, when the Gaza ceasefire came into effect, but these strikes failed to deter the group, which continued its attacks throughout that period.</p>' + '<!--split-->' + '<p>The Houthis largely held their fire during the Gaza truce, but they threatened to resume attacks when Israel cut off aid shipments into the enclave, in violation of the ceasefire terms. In response, and perhaps in retaliation for Houthi fire at its aircraft, <strong>the U.S. launched a new round of airstrikes on Houthi positions in Yemen on 15 March.</strong> Now, with the Gaza ceasefire shattered, the brief calm in the Red Sea is also over.</p>' ,
             location: {
                 center: [-77.020636, 38.886900],
                 zoom: 8.5,
